@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Journey Map: Cell &amp; Gene Therapy Orchestration</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #243044;
+    --teal: #2a9d8f;
+    --teal-light: #e6f5f3;
+    --white: #ffffff;
+    --off-white: #f7f8fa;
+    --gray-50: #f0f1f3;
+    --gray-100: #e2e4e8;
+    --gray-300: #b0b5be;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --red-light: #fef2f2;
+    --red-border: #f87171;
+    --red-text: #b91c1c;
+    --blue-light: #eff6ff;
+    --blue-border: #60a5fa;
+    --blue-text: #1d4ed8;
+    --green-light: #f0fdf4;
+    --green-border: #4ade80;
+    --green-text: #15803d;
+    --amber-light: #fffbeb;
+    --amber-border: #fbbf24;
+    --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-serif: 'IBM Plex Serif', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--off-white);
+    color: var(--gray-900);
+    padding: 32px 24px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 32px 40px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--gray-300);
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  /* CONTEXT BOX */
+  .context-box {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-left: 3px solid var(--teal);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--gray-700);
+  }
+
+  .context-box strong {
+    color: var(--gray-900);
+    font-weight: 600;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+
+  .legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  /* GRID */
+  .journey-container {
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+
+  .journey-grid {
+    display: grid;
+    grid-template-columns: 140px repeat(6, 1fr);
+    gap: 0;
+    min-width: 1100px;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-100);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  /* STAGE HEADERS */
+  .row-label {
+    padding: 14px 12px 14px 0;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-500);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 18px;
+    background: var(--white);
+  }
+
+  .stage-header {
+    padding: 14px 12px;
+    text-align: center;
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .stage-header .stage-number {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--teal);
+    margin-bottom: 2px;
+  }
+
+  .stage-header .stage-name {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .stage-header .stage-timeline {
+    font-size: 10px;
+    color: var(--gray-300);
+    margin-top: 2px;
+  }
+
+  /* CELLS */
+  .cell {
+    padding: 12px;
+    background: var(--white);
+    border-right: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--gray-700);
+  }
+
+  .cell:last-child { border-right: none; }
+
+  /* CALLOUT BOXES */
+  .pain-point {
+    background: var(--red-light);
+    border-left: 3px solid var(--red-border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .pain-point::before {
+    content: "PAIN POINT";
+    display: block;
+    font-weight: 700;
+    color: var(--red-text);
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+
+  .decision-point {
+    background: var(--blue-light);
+    border-left: 3px solid var(--blue-border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .decision-point::before {
+    content: "DECISION";
+    display: block;
+    font-weight: 700;
+    color: var(--blue-text);
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+
+  .gain-point {
+    background: var(--green-light);
+    border-left: 3px solid var(--green-border);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .gain-point::before {
+    content: "VALUE DELIVERED";
+    display: block;
+    font-weight: 700;
+    color: var(--green-text);
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+
+  /* EMOTION BAR */
+  .emotion-bar {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .emotion-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .emotion-high { background: var(--green-text); }
+  .emotion-mid { background: var(--amber-border); }
+  .emotion-low { background: var(--red-border); }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.7;
+  }
+
+  .footer strong {
+    color: var(--gray-900);
+    font-weight: 600;
+  }
+
+  .footer .teaching-note {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .footer .attribution {
+    margin-top: 12px;
+    font-style: italic;
+    color: var(--gray-300);
+  }
+
+  @media print {
+    body { padding: 12px; }
+    .journey-container { overflow: visible; }
+    .header { border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Vahana Labs &mdash; Artifact</div>
+  <h1>Customer Journey Map: Cell &amp; Gene Therapy Orchestration</h1>
+  <p class="subtitle">How a pharma company experiences the process of ordering, manufacturing, and delivering a personalized cell therapy to a cancer patient. Built from operator experience at an early-stage orchestration platform (2016-2020).</p>
+</div>
+
+<div class="context-box">
+  <strong>Context:</strong> In cell and gene therapy, you take cells from a patient, ship them to a manufacturing facility, engineer them into medicine, and send the finished product back for infusion. The entire chain is FDA-regulated, time-sensitive, and patient-specific. Every product is made for one person. If identity is lost at any point, the therapy cannot be used.
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch" style="background: var(--red-light); border: 1px solid var(--red-border);"></div>
+    Pain point
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background: var(--blue-light); border: 1px solid var(--blue-border);"></div>
+    Decision moment
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background: var(--green-light); border: 1px solid var(--green-border);"></div>
+    Value delivered
+  </div>
+</div>
+
+<div class="journey-container">
+<div class="journey-grid">
+
+  <div class="row-label"></div>
+  <div class="stage-header"><div class="stage-number">Stage 1</div><div class="stage-name">Order</div><div class="stage-timeline">Day 0</div></div>
+  <div class="stage-header"><div class="stage-number">Stage 2</div><div class="stage-name">Collection</div><div class="stage-timeline">Day 1-3</div></div>
+  <div class="stage-header"><div class="stage-number">Stage 3</div><div class="stage-name">Ship to MFG</div><div class="stage-timeline">Day 3-5</div></div>
+  <div class="stage-header"><div class="stage-number">Stage 4</div><div class="stage-name">Manufacturing</div><div class="stage-timeline">Day 5-30</div></div>
+  <div class="stage-header"><div class="stage-number">Stage 5</div><div class="stage-name">Return Ship</div><div class="stage-timeline">Day 30-32</div></div>
+  <div class="stage-header"><div class="stage-number">Stage 6</div><div class="stage-name">Infusion</div><div class="stage-timeline">Day 32-35</div></div>
+
+  <div class="row-label">What happens</div>
+  <div class="cell">Physician prescribes the therapy. Coordinating nurse at the hospital calls in to place the order. Patient demographics, prescriber info, and scheduling details are captured.</div>
+  <div class="cell">Patient arrives at a certified apheresis center. Nurse draws blood, separates white blood cells. Collection kit is labeled with patient-specific identifiers.</div>
+  <div class="cell">Courier picks up the collection kit. Temperature-controlled shipping to the manufacturing facility. Chain of custody transfers at each handoff.</div>
+  <div class="cell">Manufacturing facility receives cells, confirms identity, begins engineering. Cells are modified, expanded, tested for quality, and packaged as a finished product.</div>
+  <div class="cell">Finished product is packaged in a cryogenic shipper. Courier picks up and transports back to the treatment site. Temperature and location tracked throughout.</div>
+  <div class="cell">Hospital receives the product, confirms patient identity match. Patient undergoes conditioning. Infusion administered. Outcome monitoring begins.</div>
+
+  <div class="row-label">Who's involved</div>
+  <div class="cell">Prescribing physician, coordinating nurse, hospital call center, pharma commercial team</div>
+  <div class="cell">Apheresis nurse, patient, hospital scheduling, pharma commercial team</div>
+  <div class="cell">Courier service, pharma logistics, receiving dock at manufacturing site</div>
+  <div class="cell">Manufacturing team, quality assurance, pharma regulatory, batch release reviewers</div>
+  <div class="cell">Courier service, pharma logistics, hospital receiving</div>
+  <div class="cell">Treating physician, infusion nurse, patient, pharmacy, pharma medical affairs</div>
+
+  <div class="row-label">Customer confidence</div>
+  <div class="cell"><div class="emotion-bar"><div class="emotion-dot emotion-mid"></div>Cautious optimism. First interaction with new vendor. "Will this work for our workflow?"</div></div>
+  <div class="cell"><div class="emotion-bar"><div class="emotion-dot emotion-low"></div>High anxiety. Patient is physically present. Any error means starting over.</div></div>
+  <div class="cell"><div class="emotion-bar"><div class="emotion-dot emotion-low"></div>Blind spot. No direct visibility once it's in transit. "Where is it right now?"</div></div>
+  <div class="cell"><div class="emotion-bar"><div class="emotion-dot emotion-mid"></div>Waiting. Longest phase. Customer checks in periodically. "Is it on schedule?"</div></div>
+  <div class="cell"><div class="emotion-bar"><div class="emotion-dot emotion-mid"></div>Anticipation. Patient has been prepped. If shipping fails, the conditioning window may close.</div></div>
+  <div class="cell"><div class="emotion-bar"><div class="emotion-dot emotion-high"></div>Relief and focus. Product arrived, identity confirmed. Now it's clinical execution.</div></div>
+
+  <div class="row-label">Pain points</div>
+  <div class="cell"><div class="pain-point">Before the platform, orders were placed by phone and entered manually into spreadsheets. Transcription errors in patient names and addresses were common.</div></div>
+  <div class="cell"><div class="pain-point">If the apheresis center isn't certified for this specific therapy, the collection can't happen. Certification status often wasn't tracked centrally.</div></div>
+  <div class="cell"><div class="pain-point">Multiple courier handoffs with paper-based chain-of-custody forms. If a form was lost or mislabeled, the shipment could be rejected at receiving.</div></div>
+  <div class="cell"><div class="pain-point">Batch failures happen. If a manufacturing run fails quality testing, the entire process restarts from collection. No system existed to coordinate the re-order automatically.</div></div>
+  <div class="cell"><div class="pain-point">Patient conditioning (chemo) is timed to the product arrival. A shipping delay of even 24 hours can push the patient outside their treatment window.</div></div>
+  <div class="cell"><div class="pain-point">Final identity verification was manual. The consequence of a mismatch (wrong patient gets wrong cells) is catastrophic and irreversible.</div></div>
+
+  <div class="row-label">Decisions</div>
+  <div class="cell"><div class="decision-point">Pharma decides whether to mandate the platform for all sites or allow sites to continue using phone/fax.</div></div>
+  <div class="cell"><div class="decision-point">Does the platform verify site certification automatically, or does the coordinator check manually before scheduling?</div></div>
+  <div class="cell"><div class="decision-point">Does the pharma company want real-time courier tracking integrated, or is email notification sufficient?</div></div>
+  <div class="cell"><div class="decision-point">When a batch fails, who initiates the re-order? The manufacturing site, the pharma team, or the platform automatically?</div></div>
+  <div class="cell"><div class="decision-point">How much lead time does the hospital need before the product ships? Too little and they can't prep. Too much and they're holding a bed.</div></div>
+  <div class="cell"><div class="decision-point">Does the platform generate the final verification checklist, or does the hospital use their own?</div></div>
+
+  <div class="row-label">Platform value</div>
+  <div class="cell"><div class="gain-point">Digital order entry with validation rules. Patient identity verified at the point of entry. Scheduling conflicts flagged before they become problems.</div></div>
+  <div class="cell"><div class="gain-point">Kit labeling generated from the order record, not hand-written. Scan-based verification at collection confirms the right kit matched to the right patient.</div></div>
+  <div class="cell"><div class="gain-point">Digital chain of custody. Every handoff scanned and timestamped. Real-time alerts if temperature excursions occur or shipment is delayed.</div></div>
+  <div class="cell"><div class="gain-point">Manufacturing status visible to the pharma team without phone calls. Automated notifications at key milestones.</div></div>
+  <div class="cell"><div class="gain-point">Coordinated scheduling between manufacturing completion and hospital readiness. Platform calculates the window and alerts both sides if timing is at risk.</div></div>
+  <div class="cell"><div class="gain-point">Final identity verification built into the workflow. Digital confirmation that the product matches the patient before the infusion team proceeds.</div></div>
+
+</div>
+</div>
+
+<div class="footer">
+  <strong>How to read this map:</strong> Each column is a stage in the therapy journey from the customer's (pharma company's) perspective. Rows show what's happening, who's involved, the customer's emotional state, where friction occurs, where decisions need to be made, and where the platform delivered value.
+  <div class="teaching-note"><strong>Teaching note:</strong> The product's value proposition is not the technology (moving data between systems). It's the trust infrastructure around the therapy: maintaining patient identity fidelity, eliminating manual transcription errors, and creating visibility where the customer previously had none. The product is trust.</div>
+  <div class="attribution">Vahana Labs. Based on operating experience at an early-stage cell and gene therapy orchestration platform, 2016-2020. Company and customer names anonymized.</div>
+</div>
+
+</body>
+</html>

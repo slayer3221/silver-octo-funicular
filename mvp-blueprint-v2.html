@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MVP Blueprint: Cell &amp; Gene Therapy Orchestration Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #243044;
+    --teal: #2a9d8f;
+    --teal-light: #e6f5f3;
+    --white: #ffffff;
+    --off-white: #f7f8fa;
+    --gray-50: #f0f1f3;
+    --gray-100: #e2e4e8;
+    --gray-300: #b0b5be;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --green: #16a34a;
+    --amber: #d97706;
+    --red: #dc2626;
+    --section-order: #4a7c59;
+    --section-aph: #b07c3a;
+    --section-mfg: #3a6b8c;
+    --section-infuse: #7c4a8c;
+    --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-serif: 'IBM Plex Serif', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--off-white);
+    color: var(--gray-900);
+    padding: 32px 24px;
+    min-width: 1500px;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 32px 40px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--gray-300);
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  /* SECTION HEADERS */
+  .section-headers {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 1px;
+    margin-bottom: 1px;
+  }
+
+  .section-header {
+    padding: 14px 12px;
+    color: var(--white);
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .section-header p {
+    opacity: 0.8;
+    font-size: 10px;
+  }
+
+  .sh-order { background: var(--section-order); grid-column: 1 / 5; }
+  .sh-aph { background: var(--section-aph); grid-column: 5 / 9; }
+  .sh-mfg { background: var(--section-mfg); grid-column: 9 / 13; }
+  .sh-infuse { background: var(--section-infuse); grid-column: 13 / 14; }
+
+  /* MAIN GRID */
+  .blueprint {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 1px;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-100);
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+  }
+
+  /* STEP HEADERS */
+  .step-header {
+    background: var(--white);
+    padding: 10px 8px;
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-100);
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 9px;
+    font-weight: 700;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+
+  .step-text {
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* CELLS */
+  .cell {
+    padding: 8px;
+    background: var(--white);
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--gray-700);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  /* ROW LABELS */
+  .row-strip {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 1px;
+  }
+
+  .row-type {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--white);
+    padding: 5px 8px;
+    grid-column: 1 / -1;
+  }
+
+  .row-type-loc { background: var(--section-order); }
+  .row-type-ui { background: var(--section-mfg); }
+  .row-type-role { background: var(--section-aph); }
+  .row-type-system { background: var(--navy-light); }
+  .row-type-data { background: var(--gray-700); }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 1px 0;
+  }
+
+  .tag-loc { background: #e8f0dc; color: #3a5a2a; }
+  .tag-ui { background: #dceef5; color: #1a5570; }
+  .tag-role { background: #f5eed8; color: #6a5520; }
+  .tag-system { background: #e5e1f0; color: #4a3a6a; }
+  .tag-api { background: var(--teal-light); color: #1a6b60; }
+
+  /* DATA FLOW */
+  .data-flow {
+    font-size: 9px;
+    line-height: 1.5;
+    color: var(--gray-500);
+  }
+
+  .data-flow .field {
+    color: var(--gray-900);
+    font-weight: 600;
+  }
+
+  .arrow { color: var(--teal); font-weight: 700; }
+
+  /* CAPABILITIES */
+  .cap-section-title {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gray-900);
+    margin: 24px 0 12px;
+  }
+
+  .capabilities {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  .cap-block {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 6px;
+    padding: 14px 14px;
+    font-size: 10px;
+  }
+
+  .cap-block h3 {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gray-900);
+    padding-bottom: 6px;
+    border-bottom: 2px solid;
+  }
+
+  .cap-coc h3 { border-color: var(--section-aph); }
+  .cap-erp h3 { border-color: var(--red); }
+  .cap-courier h3 { border-color: var(--section-mfg); }
+  .cap-notify h3 { border-color: var(--section-order); }
+  .cap-aph h3 { border-color: var(--section-infuse); }
+  .cap-security h3 { border-color: var(--gray-500); }
+
+  .cap-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cap-block li {
+    padding: 3px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+    color: var(--gray-700);
+  }
+
+  .status {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .status-done { background: var(--green); }
+  .status-progress { background: var(--amber); }
+  .status-blocked { background: var(--red); }
+
+  /* LEGEND */
+  .legend-bar {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    font-size: 10px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+
+  .legend-bar .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .leg-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 24px;
+    padding: 16px 24px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--gray-300);
+    font-style: italic;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Vahana Labs &mdash; Artifact</div>
+  <h1>MVP Blueprint: Cell &amp; Gene Therapy Orchestration Platform</h1>
+  <p class="subtitle">Anonymized product blueprint showing the 13-step workflow, system integrations, roles, data flows, and capability status for an orchestration platform built during the first CAR-T BLA launch. Original created during initial launch preparation.</p>
+</div>
+
+<!-- SECTION HEADERS -->
+<div class="section-headers">
+  <div class="section-header sh-order"><h2>Order &amp; Scheduling</h2><p>Partner receives order and schedules resources; Platform manages courier</p></div>
+  <div class="section-header sh-aph"><h2>Apheresis</h2><p>Kit arrives at APH center, patient arrives, collection starts and ends, kit is picked up</p></div>
+  <div class="section-header sh-mfg"><h2>Manufacturing</h2><p>MFG receives kit, conducts cell therapy, creates, tests, ships finished product</p></div>
+  <div class="section-header sh-infuse"><h2>Infusion</h2><p>Delivered and re-infused</p></div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="blueprint">
+
+  <!-- STEP HEADERS -->
+  <div class="step-header"><span class="step-num">1</span><span class="step-text">Call center operator receives order from physician and manually enters it into ERP</span></div>
+  <div class="step-header"><span class="step-num">2</span><span class="step-text">Partner services manually schedules patient, APH Center, and Manufacturer capacity</span></div>
+  <div class="step-header"><span class="step-num">3</span><span class="step-text">ERP pushes data to Platform, and Platform schedules shipping via Courier API</span></div>
+  <div class="step-header"><span class="step-num">4</span><span class="step-text">Platform tracks COC/COI and sends notifications to appropriate parties</span></div>
+  <div class="step-header"><span class="step-num">5</span><span class="step-text">Courier readies shipper and APH kit, delivers to APH Center before patient's arrival</span></div>
+  <div class="step-header"><span class="step-num">6</span><span class="step-text">APH nurse scans kit label and confirms patient ID</span></div>
+  <div class="step-header"><span class="step-num">7</span><span class="step-text">Apheresis happens. Nurse performs collection on patient, enters notes.</span></div>
+  <div class="step-header"><span class="step-num">8</span><span class="step-text">Courier picks up APH product from APH center</span></div>
+  <div class="step-header"><span class="step-num">9</span><span class="step-text">Manufacturer receives APH kit from courier. ERP scans kit, pushes data to Platform</span></div>
+  <div class="step-header"><span class="step-num">10</span><span class="step-text">Manufacturing happens, and Platform knows to schedule a pickup</span></div>
+  <div class="step-header"><span class="step-num">11</span><span class="step-text">Courier picks up FP from manufacturer</span></div>
+  <div class="step-header"><span class="step-num">12</span><span class="step-text">Manufacturing prints APH report, adds to official paper batch record</span></div>
+  <div class="step-header"><span class="step-num">13</span><span class="step-text">Courier delivers FP to POC infusion center and scans package</span></div>
+
+  <!-- LOCATION ROW -->
+  <div class="cell"><span class="tag tag-loc">Partner Call Center</span></div>
+  <div class="cell"><span class="tag tag-loc">Partner Call Center</span></div>
+  <div class="cell"><span class="tag tag-loc">Back end</span></div>
+  <div class="cell"><span class="tag tag-loc">Back end</span></div>
+  <div class="cell"><span class="tag tag-loc">Courier</span></div>
+  <div class="cell"><span class="tag tag-loc">Apheresis Center</span></div>
+  <div class="cell"><span class="tag tag-loc">Apheresis Center</span></div>
+  <div class="cell"><span class="tag tag-loc">Apheresis Center</span></div>
+  <div class="cell"><span class="tag tag-loc">MFG Center</span></div>
+  <div class="cell"><span class="tag tag-loc">MFG Center</span></div>
+  <div class="cell"><span class="tag tag-loc">MFG Center</span></div>
+  <div class="cell"><span class="tag tag-loc">MFG Center</span></div>
+  <div class="cell"><span class="tag tag-loc">Point of Care</span></div>
+
+  <!-- UI ROW -->
+  <div class="cell"><span class="tag tag-ui">Partner ERP UI</span></div>
+  <div class="cell"><span class="tag tag-ui">Partner ERP UI</span></div>
+  <div class="cell"><span class="tag tag-ui">Platform UI</span></div>
+  <div class="cell"><span class="tag tag-ui">Platform UI</span></div>
+  <div class="cell"><span class="tag tag-ui">APH Kit</span></div>
+  <div class="cell"><span class="tag tag-ui">Scanner</span></div>
+  <div class="cell"><span class="tag tag-ui">APH Portal</span></div>
+  <div class="cell"><span class="tag tag-ui">APH Product</span></div>
+  <div class="cell"><span class="tag tag-ui">Scanner</span></div>
+  <div class="cell"><span class="tag tag-ui">TBD</span></div>
+  <div class="cell"><span class="tag tag-ui">Scanner</span></div>
+  <div class="cell"><span class="tag tag-ui">Printer</span></div>
+  <div class="cell"><span class="tag tag-ui">APH-FP</span></div>
+
+  <!-- ROLES ROW -->
+  <div class="cell"><span class="tag tag-role">Partner Commercial</span><span class="tag tag-role">Coordinating Nurse</span><span class="tag tag-role">Call Center Operator</span></div>
+  <div class="cell"><span class="tag tag-role">Partner Commercial</span></div>
+  <div class="cell"><span class="tag tag-role">Platform (auto)</span></div>
+  <div class="cell"><span class="tag tag-role">Platform (auto)</span></div>
+  <div class="cell"><span class="tag tag-role">Courier</span></div>
+  <div class="cell"><span class="tag tag-role">Partner Commercial</span><span class="tag tag-role">Apheresis Nurse</span><span class="tag tag-role">Patient</span></div>
+  <div class="cell"><span class="tag tag-role">Partner Commercial</span></div>
+  <div class="cell"><span class="tag tag-role">Partner Commercial</span><span class="tag tag-role">Courier</span></div>
+  <div class="cell"><span class="tag tag-role">Partner MFG</span><span class="tag tag-role">MFG Team Member</span></div>
+  <div class="cell"><span class="tag tag-role">Partner MFG</span></div>
+  <div class="cell"><span class="tag tag-role">Partner MFG</span><span class="tag tag-role">Courier</span></div>
+  <div class="cell"><span class="tag tag-role">Partner MFG</span><span class="tag tag-role">MFG Team Member</span></div>
+  <div class="cell"><span class="tag tag-role">POC</span><span class="tag tag-role">Courier</span></div>
+
+  <!-- SYSTEMS ROW -->
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span><span class="tag tag-api">Courier API</span></div>
+  <div class="cell"><span class="tag tag-system">Platform Core</span><span class="tag tag-system">Email Alerts</span></div>
+  <div class="cell"><span class="tag tag-api">Courier API</span></div>
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-api">Courier API</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-system">Platform Core</span><span class="tag tag-api">Courier API</span></div>
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-system">Partner ERP</span><span class="tag tag-system">Platform Core</span></div>
+  <div class="cell"><span class="tag tag-api">Courier API</span><span class="tag tag-system">Platform Core</span></div>
+
+  <!-- DATA FLOW ROW -->
+  <div class="cell"><div class="data-flow"><span class="field">Sales order data:</span><br>Patient name, DOB, Physician, Doctor address, APH location, APH date/time, MFG date/time, FP delivery address, COI #</div></div>
+  <div class="cell"><div class="data-flow">Order data <span class="arrow">&rarr;</span> ERP <span class="arrow">&rarr;</span> Platform<br><br>Resource schedule, Lot #</div></div>
+  <div class="cell"><div class="data-flow">Platform <span class="arrow">&rarr;</span> Courier API<br>Schedule <span class="arrow">&rarr;</span> ERP<br><br>Shipping schedule</div></div>
+  <div class="cell"><div class="data-flow">Platform <span class="arrow">&rarr;</span> Email<br><br>Alert data</div></div>
+  <div class="cell"><div class="data-flow">Data ...</div></div>
+  <div class="cell"><div class="data-flow">Scanner confirmation <span class="arrow">&rarr;</span> Platform <span class="arrow">&rarr;</span> ERP</div></div>
+  <div class="cell"><div class="data-flow">Data ...</div></div>
+  <div class="cell"><div class="data-flow">Scanner <span class="arrow">&rarr;</span> Platform<br>Scanner <span class="arrow">&rarr;</span> Courier <span class="arrow">&rarr;</span> Platform</div></div>
+  <div class="cell"><div class="data-flow">Data ...</div></div>
+  <div class="cell"><div class="data-flow">Scanner <span class="arrow">&rarr;</span> Platform<br>Scanner <span class="arrow">&rarr;</span> Courier <span class="arrow">&rarr;</span> Platform</div></div>
+  <div class="cell"><div class="data-flow">Data ...</div></div>
+  <div class="cell"><div class="data-flow">Data ...</div></div>
+  <div class="cell"><div class="data-flow">Courier <span class="arrow">&rarr;</span> Platform<br>Lot #</div></div>
+
+</div>
+
+<!-- CAPABILITIES -->
+<div class="cap-section-title">Platform Capabilities at Launch</div>
+
+<div class="capabilities">
+  <div class="cap-block cap-coc">
+    <h3>COC/COI Tracking</h3>
+    <ul>
+      <li><div class="status status-done"></div>COC/COI tracking from order to delivery</li>
+      <li><div class="status status-progress"></div>Order page mechanics and decisions by Partner</li>
+    </ul>
+  </div>
+  <div class="cap-block cap-erp">
+    <h3>Partner ERP Integration</h3>
+    <ul>
+      <li><div class="status status-done"></div>ERP integration to support COI/COC</li>
+      <li><div class="status status-done"></div>Supplier APH list</li>
+      <li><div class="status status-done"></div>Product list</li>
+      <li><div class="status status-done"></div>Sales order</li>
+      <li><div class="status status-done"></div>Patient ID / Lot #</li>
+      <li><div class="status status-done"></div>Ship confirmation</li>
+      <li><div class="status status-done"></div>Bar coding (batch mgt)</li>
+      <li><div class="status status-blocked"></div>ERP dev status</li>
+    </ul>
+  </div>
+  <div class="cap-block cap-courier">
+    <h3>Courier Integration</h3>
+    <ul>
+      <li><div class="status status-done"></div>Abstraction layer for courier integration</li>
+      <li><div class="status status-done"></div>APH kit pickup/dropoff</li>
+      <li><div class="status status-done"></div>FP pickup/dropoff</li>
+      <li><div class="status status-done"></div>Courier progress alerts</li>
+      <li><div class="status status-progress"></div>Courier intro, API status</li>
+    </ul>
+  </div>
+  <div class="cap-block cap-notify">
+    <h3>Notifications &amp; Alerts</h3>
+    <ul>
+      <li><div class="status status-done"></div>Alerts for order activities and updates</li>
+    </ul>
+  </div>
+  <div class="cap-block cap-aph">
+    <h3>Apheresis Portal</h3>
+    <ul>
+      <li><div class="status status-done"></div>UI for initiating COI/COC</li>
+      <li><div class="status status-done"></div>Desktop access</li>
+      <li><div class="status status-done"></div>Patient verification</li>
+      <li><div class="status status-done"></div>Procedure start/end</li>
+      <li><div class="status status-done"></div>Procedure report</li>
+      <li><div class="status status-done"></div>E-signature</li>
+      <li><div class="status status-done"></div>Amendable by admin</li>
+      <li><div class="status status-done"></div>Data pullable by Partner</li>
+      <li><div class="status status-progress"></div>Paper fallback system</li>
+      <li><div class="status status-blocked"></div>Send clarifying questions to Partner</li>
+    </ul>
+  </div>
+  <div class="cap-block cap-security">
+    <h3>Security &amp; Roles</h3>
+    <ul>
+      <li><div class="status status-done"></div>User admin role, SSO</li>
+      <li><div class="status status-done"></div>Admin access to full COC/COI</li>
+      <li><div class="status status-progress"></div>APH portal data</li>
+      <li><div class="status status-progress"></div>MFG scanning activity info from Partner</li>
+    </ul>
+  </div>
+</div>
+
+<div class="legend-bar">
+  <div class="leg-item"><div class="leg-swatch" style="background: var(--green);"></div> Complete</div>
+  <div class="leg-item"><div class="leg-swatch" style="background: var(--amber);"></div> In progress</div>
+  <div class="leg-item"><div class="leg-swatch" style="background: var(--red);"></div> Blocked / Not started</div>
+</div>
+
+<div class="footer">
+  Vahana Labs. Anonymized MVP blueprint for a cell and gene therapy orchestration platform. Original created during initial BLA launch preparation. Company and partner names removed. Based on operating experience, 2016-2020.
+</div>
+
+</body>
+</html>
