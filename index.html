@@ -667,6 +667,20 @@ body {
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
+.about__grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.about__photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--cream-dark);
+}
 .about__body {
   max-width: 720px;
   font-size: 1rem;
@@ -763,6 +777,8 @@ body {
 
   .testimonials__grid { grid-template-columns: 1fr; }
   .story { max-width: 100%; }
+  .about__grid { grid-template-columns: 1fr; text-align: center; }
+  .about__photo { margin: 0 auto; }
 }
 </style>
 </head>
@@ -788,7 +804,7 @@ body {
       <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn fade-up">Book a Discovery Call</a>
     </div>
     <div class="hero__photo fade-up">
-      <img src="headshot.jpg" alt="Arvita Tripati">
+      <img src="headshot-street.jpg" alt="Arvita Tripati">
     </div>
   </div>
 </section>
@@ -1087,11 +1103,14 @@ body {
 <section class="about section">
   <div class="container">
     <h2 class="fade-up">About Arvita</h2>
-    <div class="about__body fade-up">
+    <div class="about__grid fade-up">
+      <img src="headshot.jpg" alt="Arvita Tripati" class="about__photo">
+      <div class="about__body">
       <p>19 years as a product and compliance operator at AliveCor (FDA-cleared cardiac AI, first medical device accessory for Apple Watch), Vineti (CAR-T supply chain powering $8B+ in therapeutic revenue, acquired by J&amp;J), Clip Health (FDA-authorized diagnostics, YC-backed), and Endpoint Clinical (clinical trial technology, acquired by LabCorp). Products serve Moderna, Gilead, NHS, Novartis, Roche/Genentech, BMS, J&amp;J, AbbVie, and Takeda.</p>
       <p>At four of those companies, I also served as CISO and DPO&mdash;responsible for security posture, data privacy, and HIPAA compliance across products handling patient data, CAR-T supply chain records, and clinical trial information. That combination of product leadership and security ownership is why I catch the risks that pure product advisors miss and pure security consultants can't contextualize.</p>
       <p>Carnegie Mellon CDAIO. MBA, Babson College. Regulatory affairs and quality engineering credentials for medical devices. Former EIR at University of Michigan&mdash;evaluated a lab-stage technology and killed it when the demand wasn't there.</p>
       <p class="about__current">Currently: Diligence team, Scaling Care Fund. Pop-up board member, IOVC. Illumyn Board Fellow. Advisor at Alchemist Accelerator, Redesign Health, and The Batchery. Board member, Red Dot Ranch Foundation and ASQ Biomedical Division.</p>
+      </div>
     </div>
   </div>
 </section>
