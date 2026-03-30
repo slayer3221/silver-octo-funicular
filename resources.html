@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources | Vahana Labs</title>
+<meta name="description" content="Free diagnostic scorecards and tools for healthtech founders. Score yourself in 3 minutes.">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #00323d;
+  --ink-light: #47727b;
+  --ink-muted: #5e8a93;
+  --cream: #f0f7f8;
+  --cream-dark: #dceef1;
+  --warm-bg: #fff8ed;
+  --teal: #007d99;
+  --teal-hover: #009dba;
+  --accent: #ee4266;
+  --accent-hover: #f2657f;
+  --gold: #ffc759;
+  --highlight: #fff1d5;
+  --white: #ffffff;
+  --border: rgba(0,50,61,0.12);
+  --border-strong: rgba(0,50,61,0.2);
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Open Sans', 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 56px;
+}
+.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(240,247,248,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav__links { display: flex; align-items: center; gap: 1.5rem; }
+.nav__link {
+  font-size: 0.9rem; font-weight: 500; color: var(--ink-light);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav__link:hover { color: var(--teal); }
+.nav__link--active { color: var(--teal); font-weight: 600; }
+.nav__brand {
+  font-family: var(--font-display); font-size: 1.2rem; font-weight: 600;
+  color: var(--ink); text-decoration: none;
+}
+.btn {
+  display: inline-block; padding: 0.55rem 1.25rem; background: var(--teal);
+  color: var(--white); text-decoration: none; font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: none;
+  cursor: pointer; transition: background 0.2s, transform 0.15s;
+}
+.btn:hover { background: var(--teal-hover); transform: translateY(-1px); }
+
+/* PAGE HEADER */
+.page-header {
+  padding: 4rem 0 3rem;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* RESOURCES GRID */
+.resources { padding: 4rem 0; }
+.resources__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.resources__group-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.resources__group-desc {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.resources__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-strong);
+  margin-bottom: 1.5rem;
+}
+.resource-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 0.85rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.resource-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 4px 16px rgba(0,125,153,0.08);
+  transform: translateY(-2px);
+}
+.resource-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.resource-card__title {
+  display: block; font-weight: 600; font-size: 1rem;
+  color: var(--ink); margin-bottom: 0.3rem;
+}
+.resource-card:hover .resource-card__title { color: var(--teal); }
+.resource-card__desc {
+  display: block; font-size: 0.88rem; color: var(--ink-light);
+  line-height: 1.5; margin-bottom: 0.4rem;
+}
+.resource-card__meta {
+  display: block; font-size: 0.75rem; font-weight: 600;
+  color: var(--ink-muted); letter-spacing: 0.02em;
+}
+
+/* BACK LINK */
+.back-link {
+  display: inline-block;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 500;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* FOOTER */
+.footer {
+  padding: 2.5rem 0; text-align: center; font-size: 0.85rem;
+  color: rgba(240,247,248,0.5);
+  border-top: 1px solid rgba(240,247,248,0.08);
+  background: var(--ink);
+}
+.footer__name { font-weight: 600; color: rgba(240,247,248,0.8); margin-bottom: 0.25rem; }
+.footer__email { margin-bottom: 1rem; }
+.footer__email a { color: #009dba; text-decoration: none; }
+.footer__links { margin-bottom: 1rem; }
+.footer__links a {
+  color: rgba(240,247,248,0.5); text-decoration: none;
+  margin: 0 0.75rem; transition: color 0.2s;
+}
+.footer__links a:hover { color: #009dba; }
+
+@media (max-width: 900px) {
+  .resources__grid { grid-template-columns: 1fr; }
+  .page-header h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav__brand">Vahana Labs</a>
+    <div class="nav__links">
+      <a href="resources.html" class="nav__link nav__link--active">Resources</a>
+      <a href="press-speaking.html" class="nav__link">Press</a>
+      <a href="mandate-to-action.html" class="nav__link">AI Strategy</a>
+      <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Where are you stuck?</h1>
+    <p>Diagnostic scorecards and frameworks from 19 years of building regulated products and sitting in 60+ investor diligence calls. Three minutes each. Brutally honest.</p>
+  </div>
+</section>
+
+<section class="resources">
+  <div class="container">
+    <div class="resources__grid">
+
+      <div class="resources__group">
+        <h3 class="resources__group-title">Scorecards</h3>
+        <p class="resources__group-desc">Self-assessments that reveal the gaps your investors and buyers already see.</p>
+        <div class="resources__divider"></div>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Discovery Scorecard</span>
+          <span class="resource-card__desc">Are you building the right thing? 18 questions, 3 minutes.</span>
+          <span class="resource-card__meta">Score out of 90</span>
+        </a>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Pilot Selection Scorecard</span>
+          <span class="resource-card__desc">Your pilot "succeeded" but procurement ghosted you.</span>
+          <span class="resource-card__meta">Score out of 90</span>
+        </a>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Enterprise Messaging Scorecard</span>
+          <span class="resource-card__desc">Is your story winning deals or killing them?</span>
+          <span class="resource-card__meta">Score out of 75</span>
+        </a>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Enterprise Readiness Scorecard</span>
+          <span class="resource-card__desc">Your product works but deals die in legal.</span>
+          <span class="resource-card__meta">Score out of 90</span>
+        </a>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Raise Ready Scorecard</span>
+          <span class="resource-card__desc">Are you pitching insights or just pitching product? Pre-seed and seed versions.</span>
+          <span class="resource-card__meta">Score out of 90</span>
+        </a>
+      </div>
+
+      <div class="resources__group">
+        <h3 class="resources__group-title">Guides &amp; tools</h3>
+        <p class="resources__group-desc">Frameworks for the decisions between pilot and contract.</p>
+        <div class="resources__divider"></div>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Traction Translation Guide</span>
+          <span class="resource-card__desc">The 5 rejection patterns that kill promising healthtech companies. Pre-seed and seed versions.</span>
+          <span class="resource-card__meta">Guide</span>
+        </a>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">Customer Journey Map</span>
+          <span class="resource-card__desc">From first touch to signed contract in enterprise healthcare.</span>
+          <span class="resource-card__meta">Interactive tool</span>
+        </a>
+
+        <a href="#" class="resource-card">
+          <span class="resource-card__title">MVP Blueprint</span>
+          <span class="resource-card__desc">What to build, what to skip, and how to sequence against regulatory milestones.</span>
+          <span class="resource-card__meta">Interactive tool</span>
+        </a>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Back to Vahana Labs</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__name">Arvita Tripati &middot; Vahana Labs</div>
+    <div class="footer__email"><a href="/cdn-cgi/l/email-protection#721300041b06133204131a131c131e1310015c131b"><span class="__cf_email__" data-cfemail="e9889b9f809d88a99f888188878885888b9ac78880">[email&#160;protected]</span></a></div>
+    <div class="footer__links">
+      <a href="https://www.linkedin.com/in/atripati/" target="_blank">LinkedIn</a>
+      <a href="https://operatinginhealthtech.substack.com" target="_blank">Substack</a>
+      <a href="resources.html">Resources</a>
+      <a href="https://vahanalabs.ai/from-pilot-to-contract">Book</a>
+      <a href="https://vaha
