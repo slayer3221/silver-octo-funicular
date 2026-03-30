@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press & Speaking | Vahana Labs</title>
+<meta name="description" content="Selected coverage and invited speaking on AI, trust, and enterprise readiness in regulated markets.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #00323d;
+  --ink-light: #47727b;
+  --ink-muted: #5e8a93;
+  --cream: #f0f7f8;
+  --cream-dark: #dceef1;
+  --teal: #007d99;
+  --teal-hover: #009dba;
+  --accent: #ee4266;
+  --gold: #ffc759;
+  --highlight: #fff1d5;
+  --white: #ffffff;
+  --border: rgba(0,50,61,0.12);
+  --border-strong: rgba(0,50,61,0.2);
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Open Sans', 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 56px;
+}
+.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(240,247,248,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav__links { display: flex; align-items: center; gap: 1.5rem; }
+.nav__link {
+  font-size: 0.9rem; font-weight: 500; color: var(--ink-light);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav__link:hover { color: var(--teal); }
+.nav__link--active { color: var(--teal); font-weight: 600; }
+.nav__brand {
+  font-family: var(--font-display); font-size: 1.2rem; font-weight: 600;
+  color: var(--ink); text-decoration: none;
+}
+.btn {
+  display: inline-block; padding: 0.55rem 1.25rem; background: var(--teal);
+  color: var(--white); text-decoration: none; font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: none;
+  cursor: pointer; transition: background 0.2s, transform 0.15s;
+}
+.btn:hover { background: var(--teal-hover); transform: translateY(-1px); }
+
+/* PAGE HEADER */
+.page-header {
+  padding: 4rem 0 3rem;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* SECTION */
+.press-section {
+  padding: 3.5rem 0;
+}
+.press-section + .press-section {
+  border-top: 1px solid var(--border);
+}
+.press-section--alt {
+  background: var(--white);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+/* PRESS CARDS */
+.press-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.press-card {
+  display: block;
+  padding: 1.5rem 1.75rem;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.press-section--alt .press-card {
+  background: var(--cream);
+}
+.press-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 4px 16px rgba(0,125,153,0.08);
+  transform: translateY(-2px);
+}
+.press-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.press-card__outlet {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+.press-card__title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+  transition: color 0.2s;
+}
+.press-card:hover .press-card__title { color: var(--teal); }
+.press-card__desc {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+/* PODCAST CARDS - slightly different treatment */
+.podcast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.podcast-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.podcast-card:hover {
+  border-color: var(--accent);
+  border-left-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(238,66,102,0.08);
+  transform: translateY(-2px);
+}
+.podcast-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.podcast-card__show {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.podcast-card__title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+  transition: color 0.2s;
+}
+.podcast-card:hover .podcast-card__title { color: var(--accent); }
+
+/* SPEAKING */
+.speaking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.speaking-group {}
+.speaking-group__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.speaking-group__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-strong);
+  margin-bottom: 1.25rem;
+}
+.speaking-list {
+  list-style: none;
+}
+.speaking-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+.speaking-list li:last-child {
+  border-bottom: none;
+}
+.speaking-list__event {
+  font-weight: 600;
+  color: var(--ink);
+}
+.speaking-list__topic {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 0.15rem;
+}
+.speaking-list__date {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+/* CTA */
+.press-cta {
+  padding: 3.5rem 0;
+  background: var(--ink);
+  text-align: center;
+}
+.press-cta p {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: rgba(240,247,248,0.8);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn--accent { background: var(--accent); }
+.btn--accent:hover { background: #f2657f; }
+
+/* FOOTER */
+.footer {
+  padding: 2.5rem 0; text-align: center; font-size: 0.85rem;
+  color: rgba(240,247,248,0.5);
+  border-top: 1px solid rgba(240,247,248,0.08);
+  background: var(--ink);
+}
+.footer__name { font-weight: 600; color: rgba(240,247,248,0.8); margin-bottom: 0.25rem; }
+.footer__email { margin-bottom: 1rem; }
+.footer__email a { color: var(--teal-hover); text-decoration: none; }
+.footer__links { margin-bottom: 1rem; }
+.footer__links a {
+  color: rgba(240,247,248,0.5); text-decoration: none;
+  margin: 0 0.75rem; transition: color 0.2s;
+}
+.footer__links a:hover { color: var(--teal-hover); }
+
+@media (max-width: 900px) {
+  .press-grid { grid-template-columns: 1fr; }
+  .podcast-grid { grid-template-columns: 1fr; }
+  .speaking-grid { grid-template-columns: 1fr; }
+  .page-header h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav__brand">Vahana Labs</a>
+    <div class="nav__links">
+      <a href="mandate-to-action.html" class="nav__link">Mandate to Action</a>
+      <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Press &amp; Speaking</h1>
+    <p>Selected coverage and invited speaking on AI, trust, and enterprise readiness in regulated markets.</p>
+  </div>
+</section>
+
+<!-- FEATURED PRESS -->
+<section class="press-section press-section--alt">
+  <div class="container">
+    <h2 class="section-title">Featured press</h2>
+    <div class="press-grid">
+
+      <a href="#" class="press-card">
+        <span class="press-card__outlet">Nasdaq</span>
+        <span class="press-card__title">Women to Watch: Strategies for Success</span>
+        <span class="press-card__desc">On leadership in regulated industries and building enterprise trust at scale.</span>
+      </a>
+
+      <a href="#" class="press-card">
+        <span class="press-card__outlet">Boss Today</span>
+        <span class="press-card__title">What Effective CEO Leadership Looks Like in an AI-Driven Economy</span>
+        <span class="press-card__desc">On executive decision-making and governance in AI-first organizations.</span>
+      </a>
+
+      <a href="#" class="press-card">
+        <span class="press-card__outlet">Authority Magazine</span>
+        <span class="press-card__title">Five Things You Need to Be a Highly Effective Leader</span>
+        <span class="press-card__desc">On navigating complexity and building high-trust teams in regulated environments.</span>
+      </a>
+
+      <a href="#" class="press-card">
+        <span class="press-card__outlet">Outsourcing-Pharma</span>
+        <span class="press-card__title">People on the Move</span>
+        <span class="press-card__desc">Industry recognition for leadership in clinical and pharmaceutical operations.</span>
+      </a>
+
+      <a href="#" class="press-card">
+        <span class="press-card__outlet">Propllr Blog</span>
+        <span class="press-card__title">4 Stories That Sell</span>
+        <span class="press-card__desc">On narrative architecture that earns enterprise credibility.</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERVIEWS & PODCASTS -->
+<section class="press-section">
+  <div class="container">
+    <h2 class="section-title">Interviews &amp; podcasts</h2>
+    <div class="podcast-grid">
+
+      <a href="#" class="podcast-card">
+        <span class="podcast-card__show">Hunter Ambrose Podcast</span>
+        <span class="podcast-card__title">Building Products Healthcare Systems Actually Buy</span>
+      </a>
+
+      <a href="#" class="podcast-card">
+        <span class="podcast-card__show">Pandium Podcast</span>
+        <span class="podcast-card__title">AI, Compliance, and the Future of Healthcare</span>
+      </a>
+
+      <a href="#" class="podcast-card">
+        <span class="podcast-card__show">NowThis</span>
+        <span class="podcast-card__title">Helping Create a More Inclusive Workplace</span>
+      </a>
+
+      <a href="#" class="podcast-card">
+        <span class="podcast-card__show">MedTech Talent Lab Podcast</span>
+        <span class="podcast-card__title">On leadership development and talent strategy in regulated medtech.</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKING & PANELS -->
+<section class="press-section press-section--alt">
+  <div class="container">
+    <h2 class="section-title">Speaking &amp; panels</h2>
+    <div class="speaking-grid">
+
+      <div class="speaking-group">
+        <h3 class="speaking-group__title">Recent &amp; selected</h3>
+        <div class="speaking-group__divider"></div>
+        <ul class="speaking-list">
+          <li>
+            <span class="speaking-list__event">Sidebar</span> <span class="speaking-list__date">&middot; March 2026</span>
+            <span class="speaking-list__topic">Trust Debt</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Oasis Collective</span> <span class="speaking-list__date">&middot; March 2026</span>
+            <span class="speaking-list__topic">Storytelling that Moves Markets</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">XmartLabs</span> <span class="speaking-list__date">&middot; March 2026</span>
+            <span class="speaking-list__topic">The Architecture of Scale: Technical Decisions</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">JPM Week</span> <span class="speaking-list__date">&middot; January 2026</span>
+            <span class="speaking-list__topic">Why Your Deals Stall After the First Yes</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Stripe &amp; XmartLabs</span> <span class="speaking-list__date">&middot; November 2025</span>
+            <span class="speaking-list__topic">Getting Raise Ready</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Well Women</span> <span class="speaking-list__date">&middot; October 2025</span>
+            <span class="speaking-list__topic">Ship Smart: AI Risks that Kill Deals</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Sidebar</span> <span class="speaking-list__date">&middot; August 2025</span>
+            <span class="speaking-list__topic">Ship Smart: AI Risks that Kill Deals</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="speaking-group">
+        <h3 class="speaking-group__title">Selected past engagements</h3>
+        <div class="speaking-group__divider"></div>
+        <ul class="speaking-list">
+          <li>
+            <span class="speaking-list__event">GDPR 45th Legal Confex</span> <span class="speaking-list__date">&middot; October 2019</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Business Ethics, San Francisco State University</span> <span class="speaking-list__date">&middot; April 2017</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Auditing Design Controls, American Society for Quality</span> <span class="speaking-list__date">&middot; September 2014</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Supplier Controls, MD&amp;M East</span> <span class="speaking-list__date">&middot; May 2013</span>
+          </li>
+          <li>
+            <span class="speaking-list__event">Working with Contract Manufacturers</span> <span class="speaking-list__date">&middot; October 2012</span>
+            <span class="speaking-list__topic">Private event</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="press-cta">
+  <div class="container">
+    <p>Interested in having Arvita speak, join a panel, or contribute to a story?</p>
+    <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn btn--accent">Get in Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__name">Arvita Tripati &middot; Vahana Labs</div>
+    <div class="footer__email"><a href="mailto:arvita@vahanalabs.ai">arvita@vahanalabs.ai</a></div>
+    <div class="footer__links">
+      <a href="https://www.linkedin.com/in/atripati/" target="_blank">LinkedIn</a>
+      <a href="https://operatinginhealthtech.substack.com" target="_blank">Substack</a>
+      <a href="resources.html">Resources</a>
+      <a href="https://vahanalabs.gumroad.com/l/bundle" target="_blank">Book</a>
+      <a h
