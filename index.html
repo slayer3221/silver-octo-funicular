@@ -4,19 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vahana Labs | Where Healthcare AI Breaks: Between Pilot and Scale</title>
-<meta name="description" content="Enterprise readiness advisory for healthtech founders and product diligence for healthcare investors. 19 years building regulated products from the inside.">
+<meta name="description" content="Enterprise readiness advisory for healthtech founders and product diligence for healthcare investors. 18 years building regulated products from the inside.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-/* ==========================================================================
-   PALETTE — matched to arvitatripati.com
-   Fix 1: Contrast — muted text uses neutral-1 (#47727b), not light teal
-   Fix 2: Warmth — gold/highlight used to break teal monotony
-   Fix 3: Button hover — light is actually lighter now
-   ========================================================================== */
 :root {
   --ink: #00323d;
   --ink-light: #47727b;
@@ -49,15 +43,10 @@ body {
   padding-top: 56px;
 }
 
-/* --- UTILITY --- */
 .container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
 .section { padding: 5rem 0; }
 .section--tight { padding: 3.5rem 0; }
 
-/* ==========================================================================
-   Fix 7: Fade-in animations
-   Uses CSS animation on scroll, with fallback visibility
-   ========================================================================== */
 .fade-up {
   opacity: 0;
   transform: translateY(24px);
@@ -73,9 +62,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   NAV
-   ========================================================================== */
+/* NAV */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -106,6 +93,12 @@ body {
   transition: color 0.2s;
 }
 .nav__link:hover { color: var(--teal); }
+/* Pressure Test nav link gets a subtle accent treatment */
+.nav__link--pt {
+  color: var(--accent);
+  font-weight: 600;
+}
+.nav__link--pt:hover { color: var(--accent-hover); }
 .nav__brand {
   font-family: var(--font-display);
   font-size: 1.2rem;
@@ -118,11 +111,7 @@ body {
   padding: 0.55rem 1.25rem;
 }
 
-/* ==========================================================================
-   BUTTONS
-   Fix 3: Hover goes lighter, not darker
-   Fix 8: Focus states added
-   ========================================================================== */
+/* BUTTONS */
 .btn {
   display: inline-block;
   padding: 0.85rem 2rem;
@@ -152,11 +141,28 @@ body {
   background: var(--accent-hover);
   box-shadow: 0 4px 16px rgba(238,66,102,0.2);
 }
+/* Ghost/outline button for secondary CTAs */
+.btn--ghost {
+  background: transparent;
+  color: var(--teal);
+  border: 2px solid var(--teal);
+  padding: calc(0.85rem - 2px) calc(2rem - 2px);
+}
+.btn--ghost:hover {
+  background: rgba(0,125,153,0.06);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
 
-/* ==========================================================================
-   HERO
-   Fix 9: Headline weight bumped to 600
-   ========================================================================== */
+/* Hero CTA group */
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* HERO */
 .hero {
   padding: 6rem 0 5rem;
   position: relative;
@@ -199,6 +205,13 @@ body {
   margin-bottom: 2rem;
   max-width: 600px;
 }
+/* Rotating word — inside h1, matches em style */
+#rotating-word {
+  font-style: italic;
+  color: var(--accent);
+  transition: opacity 0.35s ease;
+  display: inline;
+}
 .hero__photo {
   width: 300px;
   height: 380px;
@@ -228,9 +241,7 @@ body {
   height: 100%;
 }
 
-/* ==========================================================================
-   QUALIFIER CARDS
-   ========================================================================== */
+/* QUALIFIER CARDS */
 .cards {
   background: var(--cream);
   border-top: 1px solid var(--border);
@@ -259,15 +270,14 @@ body {
   margin-bottom: 1.5rem;
 }
 .card__quals li {
-  padding: 0.4rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
   font-size: 0.95rem;
   color: var(--ink-light);
+  border-left: 2px solid var(--teal);
+  margin-bottom: 0.75rem;
 }
 
-/* ==========================================================================
-   BRIDGE
-   Fix 5: Now has warm background container
-   ========================================================================== */
+/* BRIDGE */
 .bridge {
   text-align: center;
   padding: 3rem 0;
@@ -288,9 +298,7 @@ body {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   PROBLEM SECTION (dark)
-   ========================================================================== */
+/* PROBLEM SECTION */
 .problem {
   background: var(--ink);
   color: var(--cream);
@@ -336,10 +344,7 @@ body {
   max-width: 640px;
 }
 
-/* ==========================================================================
-   PROOF BAR
-   Fix 6: Uses warm-bg to break teal monotony
-   ========================================================================== */
+/* PROOF BAR */
 .proof {
   background: var(--warm-bg);
   border-top: 1px solid rgba(255,199,89,0.25);
@@ -367,10 +372,7 @@ body {
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   LOGO BAR
-   Fix 1: Logo text uses ink-light for readability
-   ========================================================================== */
+/* LOGO BAR */
 .logos {
   text-align: center;
   background: var(--white);
@@ -416,9 +418,7 @@ body {
   color: var(--ink-muted);
 }
 
-/* ==========================================================================
-   SPLIT PANEL — services
-   ========================================================================== */
+/* SPLIT PANEL */
 .split {
   background: var(--cream);
   border-top: 1px solid var(--border);
@@ -433,8 +433,6 @@ body {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
-
-/* Mobile tabs (hidden on desktop) */
 .split__tabs {
   display: none;
   margin-bottom: 2rem;
@@ -462,7 +460,6 @@ body {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
-
 .split__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -485,11 +482,7 @@ body {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   ACCORDION
-   Fix 4: Chevron indicator + background hover on trigger
-   Fix 8: Focus states
-   ========================================================================== */
+/* ACCORDION */
 .accordion { border-top: 1px solid var(--border); }
 .accordion:last-child { border-bottom: 1px solid var(--border); }
 .accordion__trigger {
@@ -507,14 +500,12 @@ body {
   border-radius: 4px;
   transition: background 0.2s;
 }
-.accordion__trigger:hover {
-  background: rgba(0,125,153,0.04);
-}
+.accordion__trigger:hover { background: rgba(0,125,153,0.04); }
 .accordion__trigger:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
-.accordion__text { /* wrapper for title + quote */ }
+.accordion__text { }
 .accordion__title {
   display: block;
   font-size: 1.05rem;
@@ -544,9 +535,7 @@ body {
   stroke-width: 2;
   stroke-linecap: round;
 }
-.accordion--open .accordion__chevron {
-  transform: rotate(180deg);
-}
+.accordion--open .accordion__chevron { transform: rotate(180deg); }
 .accordion__body {
   max-height: 0;
   overflow: hidden;
@@ -562,10 +551,7 @@ body {
   line-height: 1.7;
   padding: 0 0.5rem;
 }
-.accordion__content strong {
-  color: var(--ink);
-  font-weight: 600;
-}
+.accordion__content strong { color: var(--ink); font-weight: 600; }
 .accordion__content p { margin-bottom: 0.75rem; }
 .accordion__content p:last-child { margin-bottom: 0; }
 .accordion__deliverable {
@@ -577,13 +563,8 @@ body {
   border-left: 3px solid var(--gold);
 }
 
-/* ==========================================================================
-   STORIES
-   Fix 6: Alternating bg for rhythm
-   ========================================================================== */
-.stories {
-  background: var(--white);
-}
+/* STORIES */
+.stories { background: var(--white); }
 .stories h2 {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -621,9 +602,7 @@ body {
   line-height: 1.7;
 }
 
-/* ==========================================================================
-   TESTIMONIALS
-   ========================================================================== */
+/* TESTIMONIALS */
 .testimonials {
   background: var(--cream);
   border-top: 1px solid var(--border);
@@ -657,12 +636,8 @@ body {
   line-height: 1.5;
 }
 
-/* ==========================================================================
-   ABOUT
-   ========================================================================== */
-.about {
-  background: var(--white);
-}
+/* ABOUT */
+.about { background: var(--white); }
 .about h2 {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -683,9 +658,7 @@ body {
   color: var(--ink-muted);
 }
 
-/* ==========================================================================
-   CTA (dark)
-   ========================================================================== */
+/* CTA (dark) */
 .cta {
   background: var(--ink);
   color: var(--cream);
@@ -707,9 +680,7 @@ body {
   margin-right: auto;
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
+/* FOOTER */
 .footer {
   padding: 2.5rem 0;
   text-align: center;
@@ -739,9 +710,7 @@ body {
   outline-offset: 2px;
 }
 
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   html { font-size: 16px; }
   .hero .container {
@@ -751,6 +720,7 @@ body {
   .hero h1 { font-size: 2.25rem; }
   .hero__sub { margin: 0 auto 2rem; }
   .hero__photo { margin: 0 auto; width: 200px; height: 250px; }
+  .hero__ctas { justify-content: center; }
 
   .cards__grid { grid-template-columns: 1fr; }
   .card:first-child { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 2rem; }
@@ -765,6 +735,168 @@ body {
 
   .testimonials__grid { grid-template-columns: 1fr; }
   .story { max-width: 100%; }
+
+  /* Responsive nav — hide Courses on small screens if needed */
+  .nav__link--courses { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero__ctas { flex-direction: column; align-items: stretch; }
+  .hero__ctas .btn { text-align: center; }
+}
+
+/* CONNECTOR */
+.connector {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 1.75rem 0;
+  text-align: center;
+}
+.connector__text {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* COURSES */
+.courses {
+  background: var(--warm-bg);
+  border-top: 1px solid rgba(255,199,89,0.3);
+  border-bottom: 1px solid rgba(255,199,89,0.3);
+}
+.courses__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.courses__header h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+.courses__sub {
+  font-size: 1rem;
+  color: var(--ink-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+.courses__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.course-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+.course-card__stage {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+.course-card__dates {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  background: var(--cream);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.course-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.course-card__hook {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+}
+.course-card__body {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.course-card__meta {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  flex-wrap: wrap;
+}
+.course-card__meta span + span::before {
+  content: ' · ';
+  color: var(--gold);
+}
+@media (max-width: 900px) {
+  .courses__grid { grid-template-columns: 1fr; }
+}
+/* MANDATE CALLOUT */
+.mandate {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 0;
+}
+.mandate__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.mandate__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.5rem;
+}
+.mandate__text {
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  line-height: 1.65;
+  max-width: 640px;
+}
+.mandate__text strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.mandate__cta {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.mandate__cta:hover { color: var(--teal-hover); }
+@media (max-width: 900px) {
+  .mandate__inner { flex-direction: column; gap: 1.25rem; align-items: flex-start; }
 }
 </style>
 </head>
@@ -775,8 +907,9 @@ body {
   <div class="container">
     <a href="#" class="nav__brand">Vahana Labs</a>
     <div class="nav__links">
+      <a href="https://maven.com/arvita-tripati" class="nav__link" target="_blank">Courses</a>
       <a href="mandate-to-action.html" class="nav__link">Mandate to Action</a>
-      <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn nav__cta">Book a Call</a>
+      <a href="https://pressuretest.vahanalabs.ai" class="btn nav__cta">Run Pressure Test</a>
     </div>
   </div>
 </nav>
@@ -785,13 +918,23 @@ body {
 <section class="hero">
   <div class="container">
     <div class="hero__text">
-      <h1 class="fade-up">Where healthcare AI breaks: between <em>pilot</em> and <em>scale.</em></h1>
-      <p class="hero__sub fade-up">The product works. The pilot went well. But the enterprise contract isn't closing.</p>
-      <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn fade-up">Book a Discovery Call</a>
+      <h1 class="fade-up">Find where your healthcare AI product breaks. Before your <em id="rotating-word">investor</em> does.</h1>
+      <p class="hero__sub fade-up">Pressure Test runs the interrogation your next meeting will. First session free.</p>
+      <div class="hero__ctas fade-up">
+        <a href="https://pressuretest.vahanalabs.ai" class="btn">Run the Pressure Test</a>
+        <a href="https://maven.com/arvita-tripati" class="btn btn--ghost" target="_blank">Explore Courses</a>
+      </div>
     </div>
     <div class="hero__photo fade-up">
       <img src="headshot-street.jpg" alt="Arvita Tripati">
     </div>
+  </div>
+</section>
+
+<!-- CONNECTOR -->
+<section class="connector">
+  <div class="container">
+    <p class="connector__text fade-up">Pressure Test surfaces the gaps. The courses and advisory work are built to close them — each one aimed at a different stage of the same problem.</p>
   </div>
 </section>
 
@@ -802,48 +945,39 @@ body {
       <div class="card fade-up">
         <h3>Healthtech founders</h3>
         <ul class="card__quals">
-          <li>&#x1F3E5; FDA-regulated AI, SaMD, connected devices, or digital health</li>
-          <li>&#x1F4B0; Pre-seed through Series B</li>
-          <li>&#x1F4CB; Product works. Deals aren't closing.</li>
+          <li>FDA-regulated AI, SaMD, connected devices, or digital health</li>
+          <li>Pre-seed through Series B</li>
+          <li>Product works. Deals aren't closing.</li>
         </ul>
       </div>
       <div class="card fade-up">
         <h3>Healthcare investors</h3>
         <ul class="card__quals">
-          <li>&#x1F50D; Evaluating AI-enabled or tech-enabled health targets</li>
-          <li>&#x1F4BC; PE or VC with healthcare portfolio exposure</li>
-          <li>&#x1F4CB; I evaluate whether the product survives post-close.</li>
+          <li>Evaluating AI-enabled or tech-enabled health targets</li>
+          <li>PE or VC with healthcare portfolio exposure</li>
+          <li>I evaluate whether the product survives post-close.</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TRUST DEBT BRIDGE — Fix 5: warm highlight background -->
-<section class="bridge">
-  <div class="container">
-    <p class="bridge__text fade-up">Most healthtech leaders think they have a sales problem. They have a <strong>trust debt</strong> problem. The gap between where you think you are and where enterprise buyers see you is <strong>pilot purgatory</strong>.</p>
   </div>
 </section>
 
 <!-- PROBLEM SECTION -->
 <section class="problem section">
   <div class="container">
-    <h2 class="fade-up">Why healthtech deals stall after the pilot</h2>
-    <p class="problem__intro fade-up">Enterprise healthcare buyers don't reject products. They reject risk. And the risk they're evaluating has almost nothing to do with whether your product works.</p>
-    <p class="problem__label fade-up">Your pilot succeeded. Here's what's still missing:</p>
+    <h2 class="fade-up">Where healthtech deals actually break</h2>
+    <p class="problem__intro fade-up">Two failure modes. Most founders experience both before they can name either. The first is market selection: the product works but the market you chose can't buy it — wrong procurement process, wrong evidence requirements, wrong budget owner. The second is trust infrastructure: the pilot succeeded but the deal stalled because your buyer's compliance team, procurement, and legal have questions your product team never anticipated. Both feel like a sales problem. Neither one is.</p>
+    <p class="problem__label fade-up">Here's where the gaps show up:</p>
     <div class="problem__points fade-up">
-      <div class="problem__point">Your buyer's compliance team hasn't seen your security posture, your data governance story, or your regulatory classification.</div>
+      <div class="problem__point">You picked a market based on who's excited, not who can actually move through procurement and sign a contract at your stage.</div>
       <div class="problem__point">Your champion loves the product, but they don't have budget authority and they can't explain it to procurement.</div>
-      <div class="problem__point">Your pricing assumes SMB economics, but the buyer needs enterprise contracting terms they can defend internally.</div>
-      <div class="problem__point">Your clinical evidence proves the product is accurate, but nobody's mapped it to the outcomes the payer cares about.</div>
-      <div class="problem__point">Your sales team is talking features. The buying committee is evaluating organizational risk.</div>
+      <div class="problem__point">Your buyer's compliance team hasn't seen your security posture, your data governance story, or your regulatory classification.</div>
     </div>
-    <p class="problem__coda fade-up">The technology isn't the bottleneck. Trust infrastructure is. And most companies don't realize it until they've spent 12 months in a pilot that was never going to convert.</p>
+    <p class="problem__coda fade-up">The product is almost never what's broken. What's missing is the infrastructure around it — the right market, the right evidence, the right procurement readiness. Most companies find out after the deal goes quiet.</p>
   </div>
 </section>
 
-<!-- PROOF BAR — Fix 6: warm background to break teal run -->
+<!-- PROOF BAR -->
 <section class="proof section--tight">
   <div class="container">
     <div class="proof__grid fade-up">
@@ -856,8 +990,8 @@ body {
         <div class="proof__label">founding teams taken from zero to Series A/B</div>
       </div>
       <div>
-        <div class="proof__num">2</div>
-        <div class="proof__label">scale-ups through growth and acquisition</div>
+        <div class="proof__num">3</div>
+        <div class="proof__label">scale-ups through growth or acquisition</div>
       </div>
       <div>
         <div class="proof__num">$2.3M</div>
@@ -882,6 +1016,48 @@ body {
     <div class="logos__row logos__row--sub">
       <span>Khosla Ventures</span><span>GE Ventures</span>
       <span>Y Combinator</span><span>DFJ</span><span>Canaan</span>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses section">
+  <div class="container">
+    <div class="courses__header fade-up">
+      <h2>Two courses. Same problem, two stages.</h2>
+      <p class="courses__sub">If advisory isn't the right fit yet, these are the structured starting points — built from the same frameworks, designed for founders who need to do the work themselves first.</p>
+    </div>
+    <div class="courses__grid">
+
+      <div class="course-card fade-up">
+        <div class="course-card__stage">Stage 1 &middot; Choosing your market</div>
+        <h3>Healthcare Market Fit Lab</h3>
+        <p class="course-card__hook">Before you build the wrong proof strategy or spend another year in the wrong segment.</p>
+        <p class="course-card__body">Two full days, one week apart, for founders getting interest but no traction who aren't sure if the problem is the product, the pitch, or the market. Delivers a Healthcare-Market Fit Map: buyer prioritization grounded in procurement reality, proof requirements across six categories rated by time-to-close, and a clear verdict on whether to pursue, validate, or reposition.</p>
+        <a href="https://maven.com/arvita-tripati/healthcare-market-fit-lab" class="btn" target="_blank">Apply on Maven</a>
+      </div>
+
+      <div class="course-card fade-up">
+        <div class="course-card__stage">Stage 2 &middot; Converting pilots</div>
+        <h3>Sold. Build Your Healthtech or Life Sciences Pilot Conversion Playbook</h3>
+        <p class="course-card__hook">Great pilot. No contract. That's not a sales problem.</p>
+        <p class="course-card__body">A 3-week course for founders with working products and stalled deals. Covers the product-side work that makes enterprise deals closeable: positioning, procurement documents, pilot structure, and evidence. No pipeline frameworks, no closing techniques. Built from 18 years on the inside of healthtech, watching good products fail to get bought because nobody built what the buyer actually needed to see.</p>
+        <a href="https://maven.com/arvita-tripati/from-built-to-bought-in-healthtech-life-sciences" class="btn" target="_blank">Apply on Maven</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MANDATE CALLOUT -->
+<section class="mandate">
+  <div class="container">
+    <div class="mandate__inner fade-up">
+      <div>
+        <div class="mandate__label">Outside healthtech</div>
+        <p class="mandate__text"><strong>Working outside healthtech, or leading AI adoption inside a larger org?</strong> Mandate to Action is an executive sprint that turns AI strategy conversations into a governance structure and 90-day execution plan. Starts with a 90-minute Signal Check.</p>
+      </div>
+      <a href="mandate-to-action.html" class="mandate__cta">Learn more &rarr;</a>
     </div>
   </div>
 </section>
@@ -1047,12 +1223,12 @@ body {
 <!-- STORIES -->
 <section class="stories section">
   <div class="container">
-    <h2 class="fade-up">What I've found</h2>
+    <h2 class="fade-up">Three roles. All from inside the work.</h2>
 
     <div class="story fade-up">
       <div class="story__label">As a product leader</div>
-      <h3 class="story__title">The clinical trial platform built from employee #1 to Top 5 biopharma</h3>
-      <p class="story__body">I joined as the first employee at a clinical trial technology company. Interviewed buyers, narrowed the platform to 2 workflows instead of building broad, and wrote a one-page MVP charter before a line of code was written. When engineering leadership went absent, I stepped in as interim Head of Engineering for three months&mdash;downtime dropped 83%. Built the team from 0 to 65 across three countries, handled sales enablement including FDA, ICH, ISO, and GDPR maturity objections and qualification audits, and securing a Top 5 biopharma as a client. Revenue grew 200% year over year. ARR expanded 3.8x. Retention stayed above 90% through Series A.</p>
+      <h3 class="story__title">From employee #1 to closing &amp; renewal with a Top 5 biopharma</h3>
+      <p class="story__body">I joined as the first employee at a clinical trial technology company. Interviewed buyers, narrowed the platform to 2 workflows instead of building broad, and wrote a one-page MVP charter before a line of code was written. Built the engineering function before we hired a VP of Engineering, then grew the overall team from 0 to 65 across three countries. Handled sales enablement including FDA, ICH, ISO, and GDPR maturity objections and qualification audits, and securing a Top 5 biopharma as a client. Revenue grew 200% year over year. ARR expanded 3.8x. Retention stayed above 90% through Series A.</p>
     </div>
 
     <div class="story fade-up">
@@ -1062,7 +1238,7 @@ body {
     </div>
 
     <div class="story fade-up">
-      <div class="story__label">As an advisor</div>
+      <div class="story__label">As a builder</div>
       <h3 class="story__title">The hardest call isn't finding the right market. It's telling a team the market isn't there.</h3>
       <p class="story__body">As an EIR at the University of Michigan, I evaluated a voice AI mental health product with a psychiatrist-inventor. The technology worked. I ran discovery interviews with psychiatrists. Every one of them said some version of "that looks really cool" and none of them said "I need this." No workflow pain. No billing hook. No urgency. They were getting by without it. I diagnosed it as a vitamin, not a painkiller, and recommended licensing the technology to an existing EHR platform instead of building a standalone company.</p>
     </div>
@@ -1092,10 +1268,10 @@ body {
   <div class="container">
     <h2 class="fade-up">About Arvita</h2>
     <div class="about__body fade-up">
-      <p>19 years as a product and compliance operator at AliveCor (FDA-cleared cardiac AI, first medical device accessory for Apple Watch), Vineti (CAR-T supply chain powering $8B+ in therapeutic revenue, acquired by J&amp;J), Clip Health (FDA-authorized diagnostics, YC-backed), and Endpoint Clinical (clinical trial technology, acquired by LabCorp). Products serve Moderna, Gilead, NHS, Novartis, Roche/Genentech, BMS, J&amp;J, AbbVie, and Takeda.</p>
+      <p>18 years on the inside of healthtech at AliveCor (FDA-cleared cardiac AI, first medical device accessory for Apple Watch), Vineti (CAR-T supply chain powering $8B+ in therapeutic revenue, acquired by J&amp;J), Clip Health (FDA-authorized diagnostics, YC-backed), and Endpoint Clinical (clinical trial technology, acquired by LabCorp). Products serve Moderna, Gilead, NHS, Novartis, Roche/Genentech, BMS, J&amp;J, AbbVie, and Takeda.</p>
       <p>At four of those companies, I also served as CISO and DPO&mdash;responsible for security posture, data privacy, and HIPAA compliance across products handling patient data, CAR-T supply chain records, and clinical trial information. That combination of product leadership and security ownership is why I catch the risks that pure product advisors miss and pure security consultants can't contextualize.</p>
       <p>Carnegie Mellon CDAIO. MBA, Babson College. Regulatory affairs and quality engineering credentials for medical devices. Former EIR at University of Michigan&mdash;evaluated a lab-stage technology and killed it when the demand wasn't there.</p>
-      <p class="about__current">Currently: Diligence team, Scaling Care Fund. Pop-up board member, IOVC. Illumyn Board Fellow. Advisor at Alchemist Accelerator, Redesign Health, and The Batchery. Board member, Red Dot Ranch Foundation and ASQ Biomedical Division.</p>
+      <p class="about__current">Currently: Diligence team, NDVC. Pop-up board member, IOVC. Illumyn Board Fellow. Advisor at Alchemist Accelerator, Redesign Health, Plug &amp; Play Medtech, Rutgers University, and The Batchery. Board member, Red Dot Ranch Foundation.</p>
     </div>
   </div>
 </section>
@@ -1103,8 +1279,8 @@ body {
 <!-- CTA -->
 <section class="cta section">
   <div class="container">
-    <h2 class="fade-up">Not sure where to start?</h2>
-    <p class="fade-up">Whether you're a founder trying to close enterprise deals or an investor evaluating a target&mdash;a 20-minute call, no cost, no commitment.</p>
+    <h2 class="fade-up">Ready to go deeper?</h2>
+    <p class="fade-up">If what's on this page maps to where you are, book a call. We'll figure out in 20 minutes whether there's a fit and what working together would look like.</p>
     <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn btn--accent fade-up">Book a Discovery Call</a>
   </div>
 </section>
@@ -1125,21 +1301,39 @@ body {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Accordion with aria support
-document.querySelectorAll('.accordion__trigger').forEach(trigger => {
-  trigger.addEventListener('click', () => {
-    const accordion = trigger.parentElement;
-    const group = accordion.dataset.group;
-    const isOpen = accordion.classList.contains('accordion--open');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+// Rotating word in hero subhead
+(function() {
+  var words = ['investor', 'board', 'next buyer', 'diligence team'];
+  var index = 0;
+  var el = document.getElementById('rotating-word');
+  if (!el) return;
 
-    // Close others in same group
-    document.querySelectorAll('.accordion[data-group="' + group + '"]').forEach(a => {
+  function rotate() {
+    el.style.opacity = '0';
+    setTimeout(function() {
+      index = (index + 1) % words.length;
+      el.textContent = words[index];
+      el.style.opacity = '1';
+    }, 350);
+  }
+
+  setInterval(rotate, 2500);
+})();
+
+// Accordion with aria support
+document.querySelectorAll('.accordion__trigger').forEach(function(trigger) {
+  trigger.addEventListener('click', function() {
+    var accordion = trigger.parentElement;
+    var group = accordion.dataset.group;
+    var isOpen = accordion.classList.contains('accordion--open');
+
+    document.querySelectorAll('.accordion[data-group="' + group + '"]').forEach(function(a) {
       a.classList.remove('accordion--open');
       a.querySelector('.accordion__trigger').setAttribute('aria-expanded', 'false');
     });
 
-    // Toggle current
     if (!isOpen) {
       accordion.classList.add('accordion--open');
       trigger.setAttribute('aria-expanded', 'true');
@@ -1148,14 +1342,16 @@ document.querySelectorAll('.accordion__trigger').forEach(trigger => {
 });
 
 // Mobile tabs
-document.querySelectorAll('.split__tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = tab.dataset.target;
-    document.querySelectorAll('.split__tab').forEach(t => t.classList.remove('split__tab--active'));
+document.querySelectorAll('.split__tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    var target = tab.dataset.target;
+    document.querySelectorAll('.split__tab').forEach(function(t) {
+      t.classList.remove('split__tab--active');
+    });
     tab.classList.add('split__tab--active');
 
-    const founders = document.getElementById('col-founders');
-    const investors = document.getElementById('col-investors');
+    var founders = document.getElementById('col-founders');
+    var investors = document.getElementById('col-investors');
     if (target === 'founders') {
       founders.classList.remove('split__col--hidden');
       investors.classList.add('split__col--hidden');
@@ -1166,33 +1362,32 @@ document.querySelectorAll('.split__tab').forEach(tab => {
   });
 });
 
-// Nav shadow
-window.addEventListener('scroll', () => {
+// Nav shadow on scroll
+window.addEventListener('scroll', function() {
   document.getElementById('nav').classList.toggle('nav--scrolled', window.scrollY > 10);
 });
 
-// Scroll fade-in (Fix 7)
-const fadeEls = document.querySelectorAll('.fade-up');
+// Scroll fade-in
+var fadeEls = document.querySelectorAll('.fade-up');
 if ('IntersectionObserver' in window) {
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
         fadeObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-  fadeEls.forEach(el => fadeObserver.observe(el));
+  fadeEls.forEach(function(el) { fadeObserver.observe(el); });
 } else {
-  // Fallback: show everything immediately
-  fadeEls.forEach(el => el.classList.add('is-visible'));
+  fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
 }
 
-// Desktop: show both columns regardless of hidden class
+// Desktop: show both columns
 function handleResize() {
-  const isDesktop = window.innerWidth > 900;
-  const investors = document.getElementById('col-investors');
-  const founders = document.getElementById('col-founders');
+  var isDesktop = window.innerWidth > 900;
+  var investors = document.getElementById('col-investors');
+  var founders = document.getElementById('col-founders');
   if (isDesktop) {
     investors.classList.remove('split__col--hidden');
     founders.classList.remove('split__col--hidden');
