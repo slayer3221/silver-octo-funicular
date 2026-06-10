@@ -550,6 +550,14 @@ body {
 .introbox__label{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.75rem}
 .introbox p{font-family:var(--font-display);font-size:1.1rem;line-height:1.65;color:var(--ink);font-style:italic}
 @media (max-width:900px){.pillars__grid{grid-template-columns:1fr}}
+
+/* CREDIBILITY (referral) */
+.proof__grid--two{grid-template-columns:repeat(2,1fr);max-width:560px;margin:0 auto}
+.cred-list{list-style:none;max-width:760px;margin:1.75rem auto 0}
+.cred-list li{padding:.85rem 0 .85rem 1.5rem;border-top:1px solid var(--border);font-size:.95rem;color:var(--ink-light);line-height:1.55;position:relative}
+.cred-list li:last-child{border-bottom:1px solid var(--border)}
+.cred-list li::before{content:'';position:absolute;left:0;top:1.25rem;width:8px;height:8px;border-radius:2px;background:var(--teal)}
+@media (max-width:640px){.proof__grid--two{grid-template-columns:1fr;max-width:320px}}
 </style>
 </head>
 <body>
@@ -686,17 +694,19 @@ body {
 <section class="section section--cream" id="cred">
   <div class="container">
     <div class="curriculum__header fade-up"><h2>Why I'm credible</h2></div>
-    <div class="proof__grid fade-up" style="margin-bottom:1rem;">
+    <div class="proof__grid proof__grid--two fade-up" style="margin-bottom:.5rem;">
       <div><div class="proof__num">18</div><div class="proof__label">years in regulated healthtech, medtech, biotech, diagnostics, digital health, and AI</div></div>
       <div><div class="proof__num">30+</div><div class="proof__label">FDA-regulated or AI-enabled products launched</div></div>
-      <div><div class="proof__num proof__num--text">VP-level</div><div class="proof__label">operator across AliveCor, Vineti, Korio Clinical, Endpoint Clinical, and Clip Health</div></div>
     </div>
-    <ul class="labdoes__list fade-up">
+    <ul class="cred-list fade-up">
+      <li>VP-level operator</li>
+      <li>3 founding journeys &amp; 2 Fortune 500 stints</li>
       <li>Experience across SaMD, diagnostics, eClinical, cell and gene therapy infrastructure, digital health, and regulated SaaS</li>
       <li>Former CISO and DPO responsibilities at regulated companies</li>
       <li>Certifications: RAC: Devices, CISM, CIPM, CSQE</li>
-      <li>Advisor to healthtech startups, investors, and regulated companies</li>
-      <li>EIR, mentor, and advisor across venture, accelerator, and university ecosystems</li>
+      <li>Ex-EIR at University of Michigan</li>
+      <li>Mentor and advisor across venture, accelerator, and university ecosystems including Stanford StartX, Rutgers, Redesign Health, and Plug &amp; Play MedTech</li>
+      <li>Judge for MedTech Innovator &amp; BioTools Innovator</li>
     </ul>
   </div>
 </section>
