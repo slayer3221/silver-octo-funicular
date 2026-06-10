@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Built to Survive | Building Trusted AI Products and Organizations</title>
+<meta name="description" content="Built to Survive: Building Trusted AI Products and Organizations, by Arvita Tripati and Kimberly Bloomston. A field guide to trust debt and getting enterprise AI bought, adopted, and renewed. Expected fall 2026.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   PALETTE - matched to vahanalabs.ai
+   ========================================================================== */
+:root {
+  --ink: #00323d;
+  --ink-light: #47727b;
+  --ink-muted: #5e8a93;
+  --cream: #f0f7f8;
+  --cream-dark: #dceef1;
+  --warm-bg: #fff8ed;
+  --teal: #007d99;
+  --teal-hover: #009dba;
+  --accent: #ee4266;
+  --accent-hover: #f2657f;
+  --gold: #ffc759;
+  --highlight: #fff1d5;
+  --white: #ffffff;
+  --border: rgba(0,50,61,0.12);
+  --border-strong: rgba(0,50,61,0.2);
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Open Sans', 'Segoe UI', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 56px;
+}
+
+/* --- UTILITY --- */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+.container--narrow { max-width: 860px; }
+.section { padding: 5rem 0; }
+.section--tight { padding: 3.5rem 0; }
+.section--cream { background: var(--cream); border-top: 1px solid var(--border); }
+.section--white { background: var(--white); }
+
+/* --- FADE-IN --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUpFallback 0s 1.5s forwards;
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  animation: none;
+}
+@keyframes fadeUpFallback { to { opacity: 1; transform: translateY(0); } }
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(240,247,248,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+  transition: box-shadow 0.3s;
+}
+.nav--scrolled { box-shadow: 0 2px 24px rgba(0,50,61,0.06); }
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav__links { display: flex; align-items: center; gap: 1.5rem; }
+.nav__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav__link:hover { color: var(--teal); }
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav__cta { font-size: 0.85rem; padding: 0.55rem 1.25rem; }
+@media (max-width: 720px) { .nav__link--hide { display: none; } }
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: var(--teal);
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn:hover { background: var(--teal-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,125,153,0.2); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.btn--accent { background: var(--accent); }
+.btn--accent:hover { background: var(--accent-hover); box-shadow: 0 4px 16px rgba(238,66,102,0.2); }
+.btn--ghost { background: transparent; color: var(--teal); border: 1px solid var(--border-strong); box-shadow: none; }
+.btn--ghost:hover { background: rgba(0,125,153,0.06); color: var(--teal-hover); box-shadow: none; }
+.btn--light { background: var(--white); color: var(--ink); }
+.btn--light:hover { background: var(--cream); color: var(--ink); }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero { padding: 6rem 0 4.5rem; position: relative; overflow: hidden; background: var(--white); }
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(0,125,153,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(255,199,89,0.06) 0%, transparent 50%);
+  z-index: 0;
+}
+.hero .container { position: relative; z-index: 1; max-width: 880px; }
+.hero__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.25rem;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero__sub {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  max-width: 640px;
+}
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.92rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.hero__meta span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.hero__meta span::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.hero__buttons { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+.hero__specialty { margin-top: 1.5rem; max-width: 600px; font-size: 0.82rem; color: var(--ink-muted); }
+.hero__logistics { margin-top: 1.5rem; max-width: 640px; font-size: 0.9rem; color: var(--ink-light); line-height: 1.6; padding-left: 0.85rem; border-left: 2px solid var(--gold); }
+
+/* ==========================================================================
+   BRIDGE
+   ========================================================================== */
+.bridge { text-align: center; padding: 3rem 0; background: var(--highlight); border-bottom: 1px solid rgba(255,199,89,0.3); }
+.bridge__text {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.55;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.bridge__text strong { color: var(--accent); font-weight: 600; }
+
+/* ==========================================================================
+   PROBLEM (dark)
+   ========================================================================== */
+.problem { background: var(--ink); color: var(--cream); padding: 5.5rem 0; }
+.problem h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--white); }
+.problem__intro { font-size: 1.05rem; color: rgba(240,247,248,0.7); margin-bottom: 2rem; max-width: 660px; }
+.problem__label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.problem__points { display: grid; gap: 1.5rem; max-width: 760px; }
+.problem__point { font-size: 1rem; color: rgba(240,247,248,0.85); padding-left: 1.25rem; border-left: 2px solid var(--accent); line-height: 1.6; }
+.problem__point strong { display: block; margin-bottom: 0.3rem; color: var(--white); font-weight: 600; font-size: 1.05rem; }
+.problem__coda { margin-top: 2.5rem; font-size: 1.05rem; color: var(--white); font-weight: 600; max-width: 660px; }
+
+/* ==========================================================================
+   QUALIFIER CARDS
+   ========================================================================== */
+.cards { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cards__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.card { padding: 2.5rem 0; }
+.card:first-child { border-right: 1px solid var(--border); padding-right: 2.5rem; }
+.card:last-child { padding-left: 2.5rem; }
+.card h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 1.25rem; color: var(--ink); }
+.card__quals { list-style: none; }
+.card__quals li {
+  padding: 0.45rem 0 0.45rem 1.6rem;
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  position: relative;
+}
+.card__quals li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.95rem;
+  width: 8px; height: 8px;
+  border-radius: 2px;
+}
+.card--yes .card__quals li::before { background: var(--teal); }
+.card--no .card__quals li::before { background: var(--accent); }
+
+/* ==========================================================================
+   SCHEDULE
+   ========================================================================== */
+.schedule { max-width: 860px; margin: 0 auto; }
+.phase {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.75rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--border);
+}
+.schedule .phase:last-child { border-bottom: 1px solid var(--border); }
+.phase--pause { background: var(--warm-bg); border-radius: 8px; padding: 1.6rem 1.5rem; border-top: none; margin: 0.4rem 0; }
+.phase--pause + .phase { border-top: 1px solid var(--border); }
+.phase__dates { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--teal); }
+.phase--pause .phase__dates { color: var(--ink); }
+.phase__loc { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); margin-top: 0.3rem; }
+.phase__title { font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+.phase__desc { font-size: 0.95rem; color: var(--ink-light); line-height: 1.6; }
+.phase__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(0,50,61,0.04);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+.phase--pause .phase__tag { color: var(--ink); background: rgba(255,199,89,0.3); }
+
+/* ==========================================================================
+   ACCORDION (curriculum)
+   ========================================================================== */
+.curriculum__header { text-align: center; margin-bottom: 2.5rem; }
+.curriculum__header h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 0.75rem; }
+.curriculum__intro { max-width: 660px; margin: 0 auto; color: var(--ink-light); font-size: 1rem; }
+.curriculum__accordion { max-width: 820px; margin: 0 auto; }
+.accordion { border-top: 1px solid var(--border); }
+.accordion:last-child { border-bottom: 1px solid var(--border); }
+.accordion__trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  align-items: start;
+  gap: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1.25rem 0.5rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.accordion__trigger:hover { background: rgba(0,125,153,0.04); }
+.accordion__trigger:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.accordion__week { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.35rem; }
+.accordion__title { display: block; font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; transition: color 0.2s; }
+.accordion__trigger:hover .accordion__title { color: var(--teal); }
+.accordion__quote { display: block; font-size: 0.9rem; font-style: italic; color: var(--ink-muted); line-height: 1.5; }
+.accordion__chevron { width: 20px; height: 20px; margin-top: 4px; transition: transform 0.3s ease; flex-shrink: 0; color: var(--ink-muted); }
+.accordion__chevron line { stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.accordion--open .accordion__chevron { transform: rotate(180deg); }
+.accordion__body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.accordion--open .accordion__body { max-height: 800px; padding-bottom: 1.5rem; }
+.accordion__content { font-size: 0.95rem; color: var(--ink-light); line-height: 1.7; padding: 0 0.5rem; }
+.accordion__content strong { color: var(--ink); font-weight: 600; }
+.accordion__content p { margin-bottom: 0.75rem; }
+.accordion__deliverable {
+  margin-top: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: var(--highlight);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border-left: 3px solid var(--gold);
+}
+.accordion__deliverable strong { color: var(--ink); }
+
+/* ==========================================================================
+   OUTPUTS
+   ========================================================================== */
+.outputs { background: var(--white); }
+.outputs h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 0.75rem; text-align: center; }
+.outputs__intro { max-width: 660px; margin: 0 auto 2.5rem; color: var(--ink-light); text-align: center; }
+.outputs__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; max-width: 860px; margin: 0 auto; }
+.output { padding: 1.4rem 1.6rem; background: var(--cream); border-radius: 8px; border-left: 3px solid var(--teal); }
+.output__name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.output__note { font-size: 0.9rem; color: var(--ink-light); line-height: 1.55; }
+.outputs__readout { max-width: 860px; margin: 2.5rem auto 0; padding: 1.5rem 1.75rem; background: var(--ink); border-radius: 10px; color: var(--cream); }
+.outputs__readout h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); margin-bottom: 1rem; }
+.outputs__readout ol { list-style: none; counter-reset: ro; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 2rem; }
+.outputs__readout li { counter-increment: ro; padding-left: 1.8rem; position: relative; font-size: 0.92rem; color: rgba(240,247,248,0.85); }
+.outputs__readout li::before { content: counter(ro); position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; font-size: 0.85rem; }
+
+/* ==========================================================================
+   PROOF BAR
+   ========================================================================== */
+.proof { background: var(--warm-bg); border-top: 1px solid rgba(255,199,89,0.25); border-bottom: 1px solid rgba(255,199,89,0.25); }
+.proof__grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 2rem; }
+.proof__num { font-family: var(--font-display); font-size: 3.5rem; color: var(--ink); line-height: 1; margin-bottom: 0.5rem; font-weight: 700; }
+.proof__label { font-size: 0.9rem; color: var(--ink-light); line-height: 1.5; max-width: 240px; margin: 0 auto; }
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about { background: var(--white); }
+.about h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; }
+.about__body { max-width: 740px; font-size: 1rem; color: var(--ink-light); line-height: 1.75; }
+.about__body p { margin-bottom: 1rem; }
+.about__body strong { color: var(--ink); font-weight: 600; }
+
+/* ==========================================================================
+   SPONSOR
+   ========================================================================== */
+.sponsor { background: var(--cream); border-top: 1px solid var(--border); }
+.sponsor__header { text-align: center; margin-bottom: 2.5rem; }
+.sponsor__header h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 0.75rem; }
+.sponsor__header p { max-width: 640px; margin: 0 auto; color: var(--ink-light); }
+.sponsor__card { max-width: 640px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; box-shadow: 0 12px 40px rgba(0,50,61,0.06); }
+.sponsor__tier { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+.sponsor__name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--ink); margin-bottom: 1.5rem; }
+.sponsor__list { list-style: none; margin-bottom: 1.75rem; }
+.sponsor__list li { padding: 0.5rem 0 0.5rem 1.8rem; font-size: 0.95rem; color: var(--ink-light); position: relative; border-top: 1px solid var(--border); }
+.sponsor__list li:first-child { border-top: none; }
+.sponsor__list li::before { content: ''; position: absolute; left: 0; top: 1.05rem; width: 10px; height: 6px; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+.sponsor__cats { max-width: 640px; margin: 1.5rem auto 0; font-size: 0.88rem; color: var(--ink-muted); text-align: center; line-height: 1.6; }
+
+/* ==========================================================================
+   CTA (dark)
+   ========================================================================== */
+.cta { background: var(--ink); color: var(--cream); text-align: center; padding: 4.75rem 0; }
+.cta h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: var(--white); }
+.cta p { font-size: 1.05rem; color: rgba(240,247,248,0.7); margin: 0 auto 2rem; max-width: 540px; }
+.cta__fineprint { font-size: 0.85rem; color: rgba(240,247,248,0.55); max-width: 560px; margin: -0.75rem auto 2rem; }
+.cta__buttons { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+.cta__email { margin-top: 1.5rem; font-size: 0.9rem; color: rgba(240,247,248,0.6); }
+.cta__email a { color: var(--teal-hover); text-decoration: none; }
+.cta__email a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer { padding: 3.25rem 0 2.75rem; text-align: center; font-size: 0.85rem; color: rgba(240,247,248,0.5); border-top: 1px solid rgba(255,199,89,0.22); background: var(--ink); }
+.footer__name { font-weight: 600; color: rgba(240,247,248,0.8); margin-bottom: 0.25rem; }
+.footer__email { margin-bottom: 1rem; }
+.footer__email a { color: var(--teal-hover); text-decoration: none; }
+.footer__email a:hover { text-decoration: underline; }
+.footer__links { margin-bottom: 1rem; }
+.footer__links a { color: rgba(240,247,248,0.5); text-decoration: none; margin: 0 0.75rem; transition: color 0.2s; }
+.footer__links a:hover { color: var(--teal-hover); }
+.footer__links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ==========================================================================
+   WHY NOW
+   ========================================================================== */
+.why { background: var(--cream); border-top: 1px solid var(--border); }
+.why h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--ink); }
+.why__body { max-width: 740px; font-size: 1.05rem; color: var(--ink-light); line-height: 1.75; }
+.why__body p { margin-bottom: 1rem; }
+.why__body p:last-child { margin-bottom: 0; }
+.why__body strong { color: var(--ink); font-weight: 600; }
+
+/* ==========================================================================
+   VIRTUAL TRACK
+   ========================================================================== */
+.track { background: var(--white); border-top: 1px solid var(--border); }
+.track__header { text-align: center; margin-bottom: 2.5rem; }
+.track__header h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 0.75rem; }
+.track__header p { max-width: 680px; margin: 0 auto; color: var(--ink-light); }
+.track__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem; }
+.track__col { padding: 2rem; border-radius: 12px; border: 1px solid var(--border); background: var(--cream); }
+.track__col--primary { background: var(--white); border-color: var(--teal); box-shadow: 0 12px 40px rgba(0,50,61,0.06); }
+.track__tier { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.4rem; }
+.track__col--primary .track__tier { color: var(--teal); }
+.track__name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem; }
+.track__list { list-style: none; }
+.track__list li { padding: 0.5rem 0 0.5rem 1.6rem; font-size: 0.93rem; color: var(--ink-light); position: relative; border-top: 1px solid var(--border); }
+.track__list li:first-child { border-top: none; }
+.track__list li::before { content: ''; position: absolute; left: 0; top: 0.95rem; width: 8px; height: 8px; border-radius: 2px; background: var(--teal); }
+.track__list li.track__list--minus::before { background: var(--ink-muted); width: 8px; height: 2px; border-radius: 1px; top: 1.1rem; }
+.track__cta { text-align: center; }
+
+/* ==========================================================================
+   DISCLAIMER
+   ========================================================================== */
+.disclaimer { background: var(--cream); border-top: 1px solid var(--border); }
+.disclaimer__inner { max-width: 760px; margin: 0 auto; }
+.disclaimer h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--ink); }
+.disclaimer p { font-size: 0.98rem; color: var(--ink-light); line-height: 1.7; }
+.affil-note { margin-top: 0.75rem; font-size: 0.82rem; color: var(--ink-muted); font-style: italic; }
+
+/* ==========================================================================
+   HERO CREDIBILITY LINE
+   ========================================================================== */
+.hero__cred { margin-top: 1.75rem; max-width: 680px; font-size: 0.85rem; color: var(--ink-muted); line-height: 1.65; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.hero__cred strong { color: var(--ink-light); font-weight: 600; }
+
+/* ==========================================================================
+   BRIDGE (rich)
+   ========================================================================== */
+.bridge__lead { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem; }
+.bridge__lines { list-style: none; max-width: 640px; margin: 0 auto 1.5rem; }
+.bridge__lines li { font-size: 1rem; color: var(--ink-light); padding: 0.18rem 0; }
+.bridge__close { font-size: 1.05rem; color: var(--ink); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+.bridge__close strong { color: var(--accent); font-weight: 600; }
+
+/* ==========================================================================
+   WHAT THE LAB DOES
+   ========================================================================== */
+.labdoes { background: var(--white); }
+.labdoes__neg { max-width: 640px; margin: 0 auto 1.75rem; text-align: center; }
+.labdoes__neg p { font-size: 1.05rem; color: var(--ink-muted); }
+.labdoes__q { font-family: var(--font-display); font-size: 1.85rem; font-weight: 600; color: var(--ink); text-align: center; max-width: 760px; margin: 0 auto 1rem; line-height: 1.3; }
+.labdoes__intro { text-align: center; color: var(--ink-light); max-width: 600px; margin: 0 auto 2rem; }
+.labdoes__list { list-style: none; max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 2.5rem; }
+.labdoes__list li { padding: 0.4rem 0 0.4rem 1.6rem; position: relative; font-size: 0.97rem; color: var(--ink-light); }
+.labdoes__list li::before { content: ''; position: absolute; left: 0; top: 0.85rem; width: 8px; height: 8px; border-radius: 2px; background: var(--teal); }
+
+/* ==========================================================================
+   FOR ECOSYSTEM PARTNERS (dark)
+   ========================================================================== */
+.partners { background: var(--ink); color: var(--cream); }
+.partners__label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+.partners h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+.partners__intro { max-width: 700px; color: rgba(240,247,248,0.78); margin-bottom: 1rem; font-size: 1.05rem; }
+.partners__intro:last-of-type { margin-bottom: 2.5rem; }
+.partners__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+.partners__block h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); margin-bottom: 1rem; }
+.partners__list { list-style: none; }
+.partners__list li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; font-size: 0.95rem; color: rgba(240,247,248,0.85); line-height: 1.55; }
+.partners__list li::before { content: ''; position: absolute; left: 0; top: 0.95rem; width: 9px; height: 2px; background: var(--gold); }
+.partners__hosts { columns: 2; column-gap: 2.5rem; max-width: 740px; margin-bottom: 2rem; }
+.partners__hosts li { break-inside: avoid; }
+
+/* ==========================================================================
+   PROGRAM STEPS
+   ========================================================================== */
+.steps__note { text-align: center; max-width: 700px; margin: 0 auto 2.5rem; color: var(--ink-light); }
+.steps__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+.step { padding: 1.75rem; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--teal); }
+.step__num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+.step__title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+.step__desc { font-size: 0.95rem; color: var(--ink-light); line-height: 1.6; }
+
+/* ==========================================================================
+   FACULTY
+   ========================================================================== */
+.faculty { background: var(--cream); border-top: 1px solid var(--border); }
+.faculty h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; }
+.faculty__body { max-width: 740px; font-size: 1.02rem; color: var(--ink-light); line-height: 1.75; }
+.faculty__body p { margin-bottom: 1rem; }
+.faculty__body p:last-child { margin-bottom: 0; }
+.faculty__body strong { color: var(--ink); font-weight: 600; }
+
+/* ==========================================================================
+   PROOF - four-up variant
+   ========================================================================== */
+.proof__grid--four { grid-template-columns: repeat(4, 1fr); gap: 1.75rem; }
+.proof__grid--four .proof__num { font-size: 2.5rem; }
+.proof__num--text { font-size: 1.6rem; line-height: 1.15; }
+
+/* ==========================================================================
+   SPONSOR - two-column fits/benefits
+   ========================================================================== */
+.sponsor__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem; }
+.sponsor__col { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; }
+.sponsor__col h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem; }
+.sponsor__cta { text-align: center; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  html { font-size: 16px; }
+  .hero h1 { font-size: 2.25rem; }
+  .cards__grid { grid-template-columns: 1fr; }
+  .card:first-child { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 2rem; }
+  .card:last-child { padding-left: 0; padding-top: 2rem; }
+  .proof__grid { grid-template-columns: 1fr; }
+  .phase { grid-template-columns: 1fr; gap: 0.6rem; }
+  .outputs__grid { grid-template-columns: 1fr; }
+  .outputs__readout ol { grid-template-columns: 1fr; }
+  .track__grid { grid-template-columns: 1fr; }
+  .labdoes__list { grid-template-columns: 1fr; }
+  .partners__grid { grid-template-columns: 1fr; }
+  .partners__hosts { columns: 1; }
+  .steps__grid { grid-template-columns: 1fr; }
+  .proof__grid--four { grid-template-columns: 1fr 1fr; }
+  .sponsor__grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; animation: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ===== REFERRAL PAGE COMPONENTS ===== */
+.pillars__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1020px;margin:0 auto}
+.pillars__grid--two{grid-template-columns:repeat(2,1fr);max-width:860px}
+.pillars__grid--two .pillar:last-child{grid-column:1 / -1}
+.pillar{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem}
+.pillar h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:.6rem;line-height:1.3}
+.pillar__desc{font-size:.93rem;color:var(--ink-light);line-height:1.6;margin-bottom:1.1rem}
+.pillar__list{list-style:none}
+.pillar__list li{padding:.3rem 0 .3rem 1.3rem;position:relative;font-size:.88rem;color:var(--ink-light)}
+.pillar__list li::before{content:'';position:absolute;left:0;top:.75rem;width:6px;height:6px;border-radius:2px;background:var(--teal)}
+.introbox{max-width:760px;margin:0 auto;background:var(--highlight);border-left:4px solid var(--gold);border-radius:8px;padding:1.75rem 2rem}
+.introbox__label{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.75rem}
+.introbox p{font-family:var(--font-display);font-size:1.1rem;line-height:1.65;color:var(--ink);font-style:italic}
+@media (max-width:900px){.pillars__grid,.pillars__grid--two{grid-template-columns:1fr}.pillars__grid--two .pillar:last-child{grid-column:auto}}
+
+/* CREDIBILITY (referral) */
+.proof__grid--two{grid-template-columns:repeat(2,1fr);max-width:560px;margin:0 auto}
+.cred-list{list-style:none;max-width:760px;margin:1.75rem auto 0}
+.cred-list li{padding:.85rem 0 .85rem 1.5rem;border-top:1px solid var(--border);font-size:.95rem;color:var(--ink-light);line-height:1.55;position:relative}
+.cred-list li:last-child{border-bottom:1px solid var(--border)}
+.cred-list li::before{content:'';position:absolute;left:0;top:1.25rem;width:8px;height:8px;border-radius:2px;background:var(--teal)}
+@media (max-width:640px){.proof__grid--two{grid-template-columns:1fr;max-width:320px}}
+
+/* book page */
+.bookhero{padding:4.5rem 0 3.5rem;background:linear-gradient(180deg,var(--cream),var(--white));}
+.bookhero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;}
+.bookhero__meta{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:1.1rem;}
+.bookhero h1{font-family:var(--font-display);font-size:3.2rem;line-height:1.04;font-weight:600;color:var(--ink);margin-bottom:.55rem;}
+.bookhero__subtitle{font-family:var(--font-display);font-size:1.35rem;font-style:italic;color:var(--teal);margin-bottom:1.4rem;}
+.bookhero__sub{font-size:1.06rem;color:var(--ink-light);max-width:560px;margin-bottom:1rem;line-height:1.6;}
+.bookhero__by{font-size:.95rem;color:var(--ink);font-weight:600;margin-bottom:1.6rem;}
+.bookcover-stage{display:flex;justify-content:flex-end;}
+.bookcover-img{display:block;width:100%;max-width:340px;height:auto;margin-left:auto;filter:drop-shadow(0 30px 42px rgba(0,50,61,.28));}
+.pillar__num{display:block;font-family:var(--font-display);font-size:.9rem;font-weight:600;color:var(--teal);letter-spacing:.04em;margin-bottom:.55rem;}
+.authors-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:900px;margin:0 auto;}
+.authors-grid .author:first-child{border-right:1px solid var(--border);padding-right:2.5rem;}
+.author h3{font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:var(--ink);}
+@media(max-width:900px){.bookhero .container{grid-template-columns:1fr;gap:2.4rem;}.bookcover-stage{justify-content:center;order:-1;}.bookcover-img{margin:0 auto;max-width:260px;}.bookhero h1{font-size:2.4rem;}}
+@media(max-width:760px){.authors-grid{grid-template-columns:1fr;gap:1.5rem;}.authors-grid .author:first-child{border-right:none;padding-right:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;}}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="nav__brand">Vahana Labs</a>
+    <div class="nav__links">
+      <a href="board.html" class="nav__link nav__link--hide">About Arvita</a>
+      <a href="mailto:arvita@vahanalabs.ai?subject=Built%20to%20Survive:%20launch%20list" class="btn nav__cta">Get launch updates</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="bookhero">
+  <div class="container">
+    <div>
+      <p class="bookhero__meta fade-up">Book &middot; Expected fall 2026</p>
+      <h1 class="fade-up">Built to Survive</h1>
+      <p class="bookhero__subtitle fade-up">Building Trusted AI Products and Organizations</p>
+      <p class="bookhero__sub fade-up">A field guide for the product leaders, founders, and go-to-market teams who have to get AI bought, adopted, and renewed inside the enterprise, especially in regulated industries where trust is the product.</p>
+      <p class="bookhero__by fade-up">By Arvita Tripati and Kimberly Bloomston</p>
+      <div class="hero__buttons fade-up">
+        <a href="mailto:arvita@vahanalabs.ai?subject=Built%20to%20Survive:%20launch%20list" class="btn btn--accent">Get launch updates</a>
+        <a href="https://operatinginhealthtech.substack.com" class="btn btn--ghost" target="_blank" rel="noopener">Read the ideas</a>
+      </div>
+    </div>
+    <div class="bookcover-stage fade-up">
+      <img class="bookcover-img" src="book-cover.png" alt="Built to Survive, by Arvita Tripati and Kimberly Bloomston" width="1098" height="1793">
+    </div>
+  </div>
+</section>
+
+<!-- THE ARGUMENT -->
+<section class="problem">
+  <div class="container container--narrow">
+    <p class="problem__label fade-up">The argument</p>
+    <h2 class="fade-up">Trust is what gets bought. Trust infrastructure is what gets paid for.</h2>
+    <p class="problem__intro fade-up">Most enterprise AI pilots fail, not because the model is wrong, but because the team shipped without the artifacts a buyer needs to trust it in production. The distance between a working pilot and a signed contract is trust debt, and it compounds quietly until the deal stalls.</p>
+    <p class="problem__coda fade-up">Built to Survive names that debt, shows the forms it takes, and gives product leaders the frameworks to pay it down before it ends the deal.</p>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="curriculum__header fade-up">
+      <h2>What's inside</h2>
+      <p class="curriculum__intro">Frameworks built from launching 30+ regulated, AI-enabled products and selling them into the enterprise.</p>
+    </div>
+    <div class="pillars__grid">
+      <div class="pillar fade-up">
+        <span class="pillar__num">01</span>
+        <h3>Trust debt</h3>
+        <p class="pillar__desc">The gap between a pilot that works and a contract that closes. The book names it, shows where it hides, and explains why it compounds the longer you ignore it.</p>
+      </div>
+      <div class="pillar fade-up">
+        <span class="pillar__num">02</span>
+        <h3>The Trust Burden Matrix</h3>
+        <p class="pillar__desc">Five kinds of trust debt, observability, interruption, explanation, accountability, and drift, mapped against how much autonomy your system has. Every empty cell is debt a buyer will find.</p>
+      </div>
+      <div class="pillar fade-up">
+        <span class="pillar__num">03</span>
+        <h3>Buyer archetypes</h3>
+        <p class="pillar__desc">Bold Innovator, Disciplined Integrator, Fast Follower, Strategic Builder. Each one buys differently. Run the wrong motion and you lose the deal before it reaches procurement.</p>
+      </div>
+      <div class="pillar fade-up">
+        <span class="pillar__num">04</span>
+        <h3>The Agent Boss</h3>
+        <p class="pillar__desc">What changes when the human stops reviewing outputs and starts setting missions for agentic systems, and the new artifacts buyers are beginning to demand.</p>
+      </div>
+      <div class="pillar fade-up">
+        <span class="pillar__num">05</span>
+        <h3>CFO economics</h3>
+        <p class="pillar__desc">Why deals die at the finance review, and the one-page P&amp;L view that gets your product approved instead of deferred to next quarter.</p>
+      </div>
+      <div class="pillar fade-up">
+        <span class="pillar__num">06</span>
+        <h3>Literacy debt</h3>
+        <p class="pillar__desc">Why a sincere champion inside an unready organization still fails, and how to diagnose it before the pilot starts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section section--white">
+  <div class="container">
+    <div class="curriculum__header fade-up">
+      <h2>Who it's for</h2>
+    </div>
+    <ul class="cred-list fade-up">
+      <li>Product leaders shipping AI into the enterprise</li>
+      <li>Founders selling regulated or high-stakes AI</li>
+      <li>Go-to-market and sales engineering teams who keep losing deals after a pilot that worked</li>
+      <li>CAIOs, CDAIOs, and buyers who want to read the seller's playbook</li>
+    </ul>
+  </div>
+</section>
+
+<!-- AUTHORS -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="curriculum__header fade-up">
+      <h2>Written by</h2>
+    </div>
+    <div class="authors-grid fade-up">
+      <div class="author fade-up">
+        <h3>Arvita Tripati</h3>
+        <p class="pillar__desc">Founder of Vahana Labs and an 18+ year VP-level operator in regulated healthtech and AI. She has launched 30+ regulated AI-enabled products supporting over $2B in revenue, and named the ideas at the center of this book: trust debt and pilot purgatory. <a href="board.html" style="color:var(--teal);font-weight:600;">Read her board profile.</a></p>
+      </div>
+      <div class="author fade-up">
+        <h3>Kimberly Bloomston</h3>
+        <p class="pillar__desc">Chief Product Officer at 6sense, where she leads global product, design, and operations across its AI-powered Revenue Intelligence platform. She has spent more than 15 years scaling product across enterprise SaaS, including product leadership at LiveRamp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="updates">
+  <div class="container">
+    <h2 class="fade-up">Be first to know when it ships.</h2>
+    <p class="fade-up">The book is expected in fall 2026. Get launch updates, early excerpts, and the frameworks as they are released.</p>
+    <div class="cta__buttons fade-up">
+      <a href="mailto:arvita@vahanalabs.ai?subject=Built%20to%20Survive:%20launch%20list" class="btn btn--accent">Get launch updates</a>
+      <a href="https://operatinginhealthtech.substack.com" class="btn btn--light" target="_blank" rel="noopener">Follow on Substack</a>
+    </div>
+    <p class="cta__email fade-up">Or write directly: <a href="mailto:arvita@vahanalabs.ai">arvita@vahanalabs.ai</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__name">Arvita Tripati &middot; Vahana Labs</div>
+    <div class="footer__email"><a href="mailto:arvita@vahanalabs.ai">arvita@vahanalabs.ai</a></div>
+    <div class="footer__links">
+      <a href="index.html">Vahana Labs</a>
+      <a href="board.html">About Arvita</a>
+      <a href="press-speaking.html">Press &amp; speaking</a>
+      <a href="https://www.linkedin.com/in/atripati/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://operatinginhealthtech.substack.com" target="_blank" rel="noopener">Substack</a>
+    </div>
+    <div>&copy; 2026 Vahana Labs</div>
+  </div>
+</footer>
+
+<script>
+// Nav shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('nav--scrolled', window.scrollY > 10);
+});
+
+// Accordion (independent toggle)
+document.querySelectorAll('.accordion__trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const accordion = trigger.parentElement;
+    const isOpen = accordion.classList.toggle('accordion--open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
+// Scroll fade-in
+const fadeEls = document.querySelectorAll('.fade-up');
+if ('IntersectionObserver' in window) {
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+  fadeEls.forEach(el => fadeObserver.observe(el));
+} else {
+  fadeEls.forEach(el => el.classList.add('is-visible'));
+}
+</script>
+
+</body>
+</html>
