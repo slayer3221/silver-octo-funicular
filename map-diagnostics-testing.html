@@ -7,17 +7,88 @@
 </head>
 <body>
 <x-dc>
-<helmet>
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/fonts.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/colors.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/typography.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/spacing.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/radius.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/elevation.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/motion.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/tokens/base.css">
-<link rel="stylesheet" href="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/styles.css">
-<script src="_ds/vahana-labs-design-system-2cb58ad1-a7b3-4c25-acaa-e95dd09ed5e3/_ds_bundle.js"></script>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:wght@300;400;600;700&display=swap">
+
+
+
+
+
+
+
+
+
+<style>
+:root{
+  /* ---- Brand ---- */
+  --brand-primary:#007D99;
+  --brand-primary-hover:#00647A;
+  --brand-primary-pressed:#005366;
+  --brand-secondary:#EE4266;
+  --brand-secondary-hover:#E01541;
+  --brand-secondary-pressed:#CD133B;
+  --brand-tertiary:#FFC759;
+  --brand-highlight:#FFF1D5;
+
+  /* ---- Neutrals (teal-cast, never grey) ---- */
+  --neutral-black:#00323D;
+  --neutral-slate:#47727B;
+  --neutral-midtone:#9AC6D0;
+  --neutral-fade:#CAE1E5;
+  --neutral-light:#EBF5F7;
+  --neutral-white:#F5FAFB;
+  --pure-white:#FFFFFF;
+
+  /* ---- Tags (flat labels, dark text) ---- */
+  --tag-blue:#92DCE5;
+  --tag-red:#F58FA5;
+  --tag-yellow:#FFD685;
+  --tag-green:#A9DBB8;
+
+  /* ---- Semantic: text ---- */
+  --text-heading:var(--neutral-black);
+  --text-body:var(--neutral-black);
+  --text-muted:var(--neutral-slate);
+  --text-subtle:var(--neutral-midtone);
+  --text-link:var(--brand-primary);
+  --text-link-hover:var(--brand-primary-hover);
+  --text-accent:var(--brand-secondary);
+  --text-on-dark:var(--neutral-white);
+  --text-on-primary:#FFFFFF;
+
+  /* ---- Semantic: surfaces ---- */
+  --surface-page:var(--neutral-white);
+  --surface-card:#FFFFFF;
+  --surface-sunken:var(--neutral-light);
+  --surface-inverse:var(--neutral-black);
+  --surface-brand:var(--brand-primary);
+  --surface-accent:var(--brand-secondary);
+  --surface-highlight:var(--brand-highlight);
+
+  /* ---- Semantic: lines ---- */
+  --border-subtle:var(--neutral-fade);
+  --border-default:var(--neutral-midtone);
+  --border-strong:var(--neutral-slate);
+  --border-focus:var(--brand-primary);
+  --rule-hairline:1px solid var(--border-subtle);
+
+  /* ---- Semantic: state ---- */
+  --state-info:var(--brand-primary);
+  --state-info-surface:var(--neutral-light);
+  --state-critical:var(--brand-secondary);
+  --state-critical-surface:#FDE7EC;
+  --state-caution:var(--brand-tertiary);
+  --state-caution-surface:var(--brand-highlight);
+  --state-positive:#2F8F6B;
+  --state-positive-surface:#E7F4ED;
+  --state-disabled-fg:var(--neutral-midtone);
+  --state-disabled-bg:var(--neutral-light);
+
+  /* ---- Focus ---- */
+  --focus-ring:0 0 0 3px rgba(0,125,153,.28);
+}
+
+body{font-family:'Open Sans',sans-serif;color:var(--neutral-black);-webkit-font-smoothing:antialiased}
+</style>
 <style>
   body { background: var(--neutral-light); margin: 0; }
   a { color: var(--brand-primary); text-decoration-thickness: 1px; text-underline-offset: 3px; }
