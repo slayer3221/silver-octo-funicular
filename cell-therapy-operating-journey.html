@@ -11,6 +11,10 @@
 body{margin:0}
 a{color:#007D99;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{color:#00647A;text-decoration-thickness:2px}
+section[data-band-tint] a{color:#00647A}
+section[data-band-dark] a{color:#CAE1E5;text-decoration-color:#9AC6D0}
+section[data-band-dark] a:hover{color:#F5FAFB}
+section[data-band-tint] a:hover{color:#005366}
 @media (max-width:1080px){
 [data-r="rail"]{grid-template-columns:repeat(3,1fr) !important;row-gap:28px}
 }
@@ -35,12 +39,11 @@ a:hover{color:#00647A;text-decoration-thickness:2px}
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:12px 48px;min-height:72px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 36px">
 <a href="index.html" style="text-decoration:none;color:#00323D;display:flex;flex-direction:column;line-height:1.1"><span style="font-family:Lora,serif;font-weight:500;font-size:21px;letter-spacing:-.01em">Vahana Labs</span><span style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-top:2px">Arvita Tripati</span></a>
 <nav style="margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px">
-<a href="index.html" style="font-size:15px;font-weight:600;text-decoration:none;color:#007D99">Operating leverage</a>
-<a href="market-entry.html" style="font-size:15px;font-weight:400;text-decoration:none;color:#00323D">Market entry</a>
+<a href="index.html" style="font-size:15px;font-weight:400;text-decoration:none;color:#00323D">For healthcare operators</a>
+<a href="market-entry.html" style="font-size:15px;font-weight:400;text-decoration:none;color:#00323D">For healthtech companies</a>
 <a href="speaking.html" style="font-size:15px;font-weight:400;text-decoration:none;color:#00323D">Speaking</a>
 <a href="about.html" style="font-size:15px;font-weight:400;text-decoration:none;color:#00323D">About</a>
-<a href="book.html" style="font-size:15px;font-weight:400;text-decoration:none;color:#00323D">Book</a>
-<a href="https://cal.com/arvita-tripati/advisory-discovery" style="font-size:15px;font-weight:600;text-decoration:none;color:#007D99;border-bottom:1px solid #9AC6D0;padding-bottom:2px">Discuss a diagnostic</a>
+<a href="https://cal.com/arvita-tripati/advisory-discovery" style="font-size:15px;font-weight:600;text-decoration:none;color:#007D99;border-bottom:1px solid #9AC6D0;padding-bottom:2px">Pressure-test a thesis</a>
 </nav>
 </div></header>
 
@@ -54,7 +57,7 @@ a:hover{color:#00647A;text-decoration-thickness:2px}
 </div>
 </div></section>
 
-<section data-screen-label="Stages" data-r="band" style="background:#EBF5F7;padding:80px 0 88px">
+<section data-band-tint="pale" data-screen-label="Stages" data-r="band" style="background:#EBF5F7;padding:80px 0 88px">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px 32px">
 <div data-r="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:baseline">
 <h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:32px;line-height:1.15;letter-spacing:-.02em;margin:0;max-width:26ch;text-wrap:pretty">Read down a row, not across a stage</h2>
@@ -116,12 +119,12 @@ a:hover{color:#00647A;text-decoration-thickness:2px}
 </div>
 </section>
 
-<section data-screen-label="Reading" data-r="band" style="background:#FFF1D5;padding:88px 0">
+<section data-band-tint="cream" data-screen-label="Reading" data-r="band" style="background:#FFF1D5;padding:88px 0">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
 <div data-r="split" style="display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start">
 <div>
 <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:16px">Where the leverage was</div>
-<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:34px;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px;max-width:28ch;text-wrap:pretty">The constraint was never the software. It was <em style="font-style:italic;color:#007D99">coordination nobody owned.</em></h2>
+<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:34px;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px;max-width:28ch;text-wrap:pretty">The constraint was never the software. It was <em style="font-style:italic;color:#00647A">coordination nobody owned.</em></h2>
 <p style="font-size:18px;font-weight:300;line-height:1.65;margin:0 0 16px;max-width:58ch">The scarce resources in this chain are apheresis slots, manufacturing runs, cryogenic transport windows and conditioned patients. Every lost form, uncertified site or failed identity check consumes them twice — and no single participant controlled the whole journey, so no one was accountable for the rework.</p>
 <p style="font-size:18px;font-weight:300;line-height:1.65;margin:0 0 16px;max-width:58ch">Identity fidelity, digital custody and shared visibility were the mechanisms. The leverage was fewer restarts, fewer missed treatment windows and constrained capacity used once.</p>
 <p style="font-size:17px;font-weight:300;line-height:1.65;margin:0;color:#47727B;max-width:58ch">That is the same reading applied to any operating-leverage question: name the constrained resource, find the handoff where the economics break, and intervene no further than that.</p>
@@ -136,17 +139,17 @@ a:hover{color:#00647A;text-decoration-thickness:2px}
 
 <footer style="background:#00323D;color:#F5FAFB;padding:56px 0 32px">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap">
-<div><span style="font-family:Lora,serif;font-weight:500;font-size:21px">Vahana Labs</span><p style="margin:12px 0 0;font-size:14px;font-weight:300;color:#9AC6D0;max-width:42ch">Commercialization and operating leverage for regulated healthcare technology.</p><p style="margin:14px 0 0;font-size:14px;font-weight:300;color:#9AC6D0"><a href="mailto:arvita@vahanalabs.ai" style="color:#CAE1E5;text-decoration-color:#47727B">arvita@vahanalabs.ai</a></p></div>
+<div><span style="font-family:Lora,serif;font-weight:500;font-size:21px">Vahana Labs</span><p style="margin:12px 0 0;font-size:14px;font-weight:300;color:#9AC6D0;max-width:42ch">Healthcare operating leverage and regulated product commercialization.</p><p style="margin:14px 0 0;font-size:14px;font-weight:300;color:#9AC6D0"><a href="mailto:arvita@vahanalabs.ai" style="color:#CAE1E5;text-decoration-color:#9AC6D0">arvita@vahanalabs.ai</a></p></div>
 <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
-<a href="index.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">Operating leverage</a>
-<a href="market-entry.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">Market entry</a>
-<a href="speaking.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">Speaking</a>
-<a href="about.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">About</a>
-<a href="book.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">Book</a>
+<a href="index.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Operating leverage</a>
+<a href="market-entry.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Market entry</a>
+<a href="speaking.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Speaking</a>
+<a href="about.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">About</a>
+<a href="book.html" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Book</a>
 <div style="display:flex;align-items:baseline;gap:12px;margin-top:6px">
-<a href="https://www.linkedin.com/in/atripati/" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">LinkedIn</a>
-<span style="color:#47727B;font-size:14px">&middot;</span>
-<a href="https://operatinginhealthtech.substack.com" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#47727B">Substack</a>
+<a href="https://www.linkedin.com/in/atripati/" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">LinkedIn</a>
+<span style="color:#9AC6D0;font-size:14px">&middot;</span>
+<a href="https://operatinginhealthtech.substack.com" style="font-size:14px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Substack</a>
 </div>
 <span style="font-size:12px;color:#47727B;margin-top:8px">&copy; 2026 Vahana Labs &middot; Founded by Arvita Tripati</span>
 </div>

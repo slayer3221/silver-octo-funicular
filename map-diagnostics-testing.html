@@ -4,21 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
-<script async src="https://cdn.podpitch.com/t/94a4a732-3b31-4e4c-ba85-dc5981483d13"></script>
 </head>
 <body>
 <x-dc>
 <helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:wght@300;400;600;700&display=swap">
-
-
-
-
-
-
-
-
-
 <style>
+/* Vahana Labs design tokens — inlined for the flat static build */
+/* tokens/colors.css */
 :root{
   /* ---- Brand ---- */
   --brand-primary:#007D99;
@@ -87,13 +79,154 @@
   /* ---- Focus ---- */
   --focus-ring:0 0 0 3px rgba(0,125,153,.28);
 }
+/* tokens/typography.css */
+:root{
+  --font-display:'Lora',Georgia,'Times New Roman',serif;
+  --font-body:'Open Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
 
-body{font-family:'Open Sans',sans-serif;color:var(--neutral-black);-webkit-font-smoothing:antialiased}
-</style>
-<style>
+  --weight-light:300;
+  --weight-regular:400;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+
+  /* Type scale — 1.25 major third, 16px base */
+  --text-2xs:11px;
+  --text-xs:12px;
+  --text-sm:14px;
+  --text-base:16px;
+  --text-md:18px;
+  --text-lg:20px;
+  --text-xl:24px;
+  --text-2xl:30px;
+  --text-3xl:38px;
+  --text-4xl:48px;
+  --text-5xl:60px;
+  --text-6xl:76px;
+
+  --leading-tight:1.1;
+  --leading-snug:1.25;
+  --leading-normal:1.5;
+  --leading-relaxed:1.65;
+
+  --tracking-tight:-0.02em;
+  --tracking-normal:0;
+  --tracking-wide:0.04em;
+  --tracking-caps:0.12em;
+
+  /* Semantic roles */
+  --type-display-family:var(--font-display);
+  --type-display-weight:var(--weight-regular);
+  --type-display-tracking:var(--tracking-tight);
+  --type-heading-family:var(--font-display);
+  --type-heading-weight:var(--weight-medium);
+  --type-body-family:var(--font-body);
+  --type-body-weight:var(--weight-light);
+  --type-body-size:var(--text-md);
+  --type-body-leading:var(--leading-relaxed);
+  --type-ui-family:var(--font-body);
+  --type-ui-weight:var(--weight-semibold);
+  --type-ui-size:var(--text-sm);
+  --type-eyebrow-size:var(--text-xs);
+  --type-eyebrow-weight:var(--weight-semibold);
+  --type-eyebrow-tracking:var(--tracking-caps);
+}
+/* tokens/spacing.css */
+:root{
+  /* 4px base grid */
+  --space-0:0;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:40px;
+  --space-8:48px;
+  --space-9:64px;
+  --space-10:80px;
+  --space-11:104px;
+  --space-12:136px;
+
+  --gutter-inline:24px;
+  --gutter-inline-lg:48px;
+  --section-y:96px;
+  --section-y-lg:136px;
+  --stack-tight:8px;
+  --stack:16px;
+  --stack-loose:32px;
+
+  --measure-prose:66ch;
+  --measure-narrow:46ch;
+  --container-max:1200px;
+  --container-text:760px;
+}
+/* tokens/radius.css */
+:root{
+  --radius-none:0;
+  --radius-xs:2px;
+  --radius-sm:4px;
+  --radius-md:6px;
+  --radius-lg:10px;
+  --radius-pill:999px;
+  --radius-card:var(--radius-md);
+  --radius-control:var(--radius-sm);
+  --radius-tag:var(--radius-xs);
+}
+/* tokens/elevation.css */
+:root{
+  /* Shadows are teal-tinted, low-spread, never black-grey */
+  --shadow-none:none;
+  --shadow-xs:0 1px 2px rgba(0,50,61,.08);
+  --shadow-sm:0 1px 3px rgba(0,50,61,.10), 0 1px 1px rgba(0,50,61,.04);
+  --shadow-md:0 4px 12px rgba(0,50,61,.10);
+  --shadow-lg:0 12px 32px rgba(0,50,61,.14);
+  --shadow-inset:inset 0 1px 0 rgba(255,255,255,.6);
+  --shadow-card:var(--shadow-sm);
+  --shadow-raised:var(--shadow-md);
+  --shadow-overlay:var(--shadow-lg);
+
+  --scrim-dark:rgba(0,50,61,.56);
+  --scrim-light:rgba(245,250,251,.72);
+  --blur-overlay:blur(6px); /* @kind other */
+}
+/* tokens/motion.css */
+:root{
+  --duration-instant:80ms; /* @kind other */
+  --duration-fast:140ms; /* @kind other */
+  --duration-base:200ms; /* @kind other */
+  --duration-slow:320ms; /* @kind other */
+  --ease-standard:cubic-bezier(.2,.6,.2,1); /* @kind other */
+  --ease-out:cubic-bezier(0,.6,.3,1); /* @kind other */
+  --ease-in:cubic-bezier(.5,0,1,.5); /* @kind other */
+  --transition-control:background-color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard),box-shadow var(--duration-fast) var(--ease-standard); /* @kind other */
+}
+/* tokens/base.css */
+/* Minimal element defaults so consumers inherit the brand voice without a reset framework. */
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--type-body-family);font-weight:var(--type-body-weight);font-size:var(--type-body-size);line-height:var(--type-body-leading);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--type-heading-family);color:var(--text-heading);font-weight:var(--type-heading-weight);line-height:var(--leading-snug);letter-spacing:var(--tracking-tight);margin:0 0 var(--space-4)}
+h1{font-size:var(--text-4xl);font-weight:var(--weight-regular)}
+h2{font-size:var(--text-2xl)}
+h3{font-size:var(--text-xl)}
+h4{font-size:var(--text-md);font-family:var(--font-body);font-weight:var(--weight-semibold);letter-spacing:0}
+p{margin:0 0 var(--space-4);max-width:var(--measure-prose)}
+a{color:var(--text-link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:color var(--duration-fast) var(--ease-standard)}
+a:hover{color:var(--text-link-hover);text-decoration-thickness:2px}
+strong{font-weight:var(--weight-semibold)}
+small{font-size:var(--text-sm)}
+code,kbd{font-family:var(--font-mono);font-size:.92em}
+hr{border:0;border-top:var(--rule-hairline);margin:var(--space-6) 0}
+::selection{background:var(--brand-highlight);color:var(--neutral-black)}
+:focus-visible{outline:2px solid var(--border-focus);outline-offset:2px}
+.eyebrow{font-family:var(--font-body);font-size:var(--type-eyebrow-size);font-weight:var(--type-eyebrow-weight);letter-spacing:var(--type-eyebrow-tracking);text-transform:uppercase;color:var(--text-muted)}
+
+/* page styles */
+
   body { background: var(--neutral-light); margin: 0; }
-  a { color: var(--brand-primary); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { color: var(--brand-primary-hover); text-decoration-thickness: 2px; }
+  a { color: var(--brand-primary-hover); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--brand-primary-pressed); text-decoration-thickness: 2px; }
   @media print { body { background: #fff; } }
 </style>
 </helmet>
@@ -182,7 +315,7 @@ body{font-family:'Open Sans',sans-serif;color:var(--neutral-black);-webkit-font-
       <div>
         <div style="font-family: Lora, serif; font-size: 18px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px;">Start with one consequential question</div>
         <div style="font-size: 13px; font-weight: 300; line-height: 1.45; color: var(--neutral-slate); max-width: 490px; margin-bottom: 7px;">One question involving test activation, collection, sample logistics, processing capacity, result delivery, margin or cash. A preliminary conversation determines whether it warrants a diagnostic.</div>
-        <div style="font-family: Lora, serif; font-size: 16px; color: var(--brand-primary); letter-spacing: -0.02em;">Discuss a diagnostics value-creation question →</div>
+        <div style="font-family: Lora, serif; font-size: 16px; color: var(--brand-primary-hover); letter-spacing: -0.02em;">Pressure-test a thesiss value-creation question →</div>
       </div>
       <div style="text-align: right; font-size: 12.5px; font-weight: 300; line-height: 1.5; color: var(--neutral-slate); flex-shrink: 0; margin-top: 11px;">
         <div style="font-family: Lora, serif; font-size: 16px; font-weight: 500; line-height: 1.35; color: var(--neutral-black);">Arvita Tripati</div>
