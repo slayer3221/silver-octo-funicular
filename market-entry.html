@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:wght@300;400;600;700&display=swap"><title>Regulated healthtech commercialization and market entry | Vahana Labs</title><script async src="https://cdn.podpitch.com/t/94a4a732-3b31-4e4c-ba85-dc5981483d13"></script><meta name="description" content="Align claims, evidence, payment, workflow and implementation so regulated healthtech products reach paid, routine, repeatable enterprise use."><link rel="canonical" href="https://vahanalabs.ai/market-entry.html"><meta property="og:type" content="website"><meta property="og:url" content="https://vahanalabs.ai/market-entry.html"><meta property="og:site_name" content="Vahana Labs"><meta property="og:title" content="Your product works. That does not make it commercially ready."><meta property="og:description" content="Align claims, evidence, payment, workflow and implementation so regulated healthtech products reach paid, routine, repeatable enterprise use."><meta property="og:image" content="https://vahanalabs.ai/arvita-hero.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Your product works. That does not make it commercially ready."><meta name="twitter:description" content="Align claims, evidence, payment, workflow and implementation so regulated healthtech products reach paid, routine, repeatable enterprise use."><link rel="canonical" href="https://vahanalabs.ai/market-entry.html"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon-192.png"><style>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:wght@300;400;600;700&display=swap"><title>Regulated healthtech commercialization and market entry | Vahana Labs</title><meta name="description" content="Align claims, evidence, payment, workflow and implementation so regulated healthtech products reach paid, routine, repeatable enterprise use."><link rel="canonical" href="https://vahanalabs.ai/market-entry.html"><meta property="og:type" content="website"><meta property="og:url" content="https://vahanalabs.ai/market-entry.html"><meta property="og:site_name" content="Vahana Labs"><meta property="og:title" content="Your product works. That does not make it commercially ready."><meta property="og:description" content="Align claims, evidence, payment, workflow and implementation so regulated healthtech products reach paid, routine, repeatable enterprise use."><meta property="og:image" content="https://vahanalabs.ai/arvita-hero.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Your product works. That does not make it commercially ready."><meta name="twitter:description" content="Align claims, evidence, payment, workflow and implementation so regulated healthtech products reach paid, routine, repeatable enterprise use."><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon-192.png"><script async src="https://cdn.podpitch.com/t/94a4a732-3b31-4e4c-ba85-dc5981483d13"></script><style>
 body{margin:0;font-family:'Open Sans',sans-serif;color:#00323D;background:#F5FAFB;-webkit-font-smoothing:antialiased}
 a{color:#007D99;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{color:#00647A;text-decoration-thickness:2px}
@@ -17,17 +17,25 @@ section[data-band-dark] a:hover{color:#F5FAFB}
 section[data-band-tint] a:hover{color:#005366}
 @media (max-width:1000px){
 [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
-[data-r="split"],[data-r="two"],[data-r="offer"],[data-r="fit"]{grid-template-columns:1fr !important;gap:26px !important}
+[data-r="split"],[data-r="two"],[data-r="offer"],[data-r="fit"],[data-r="hero"]{grid-template-columns:1fr !important;gap:26px !important}
+[data-r="hero"]{gap:40px !important}
+[data-r="heroimg"] img{height:320px !important}
+[data-r="wide"]{grid-template-columns:1fr !important;gap:16px !important;align-items:start !important}
+[data-r="wide"] img{height:240px !important}
 [data-r="four"]{grid-template-columns:1fr 1fr !important;gap:28px 40px !important}
 [data-r="four"] p{max-width:34ch !important}
+[data-r="three"]{grid-template-columns:1fr !important;gap:44px !important}
 [data-r="strip"]{grid-template-columns:1fr 1fr !important;gap:24px 32px !important}
+[data-r="chain"]{grid-template-columns:1fr !important;gap:0 !important}
+[data-r="chain"] > div{border-left:none !important;border-top:1px solid #9AC6D0;padding:10px 0 !important}
 [data-r="stage"]{grid-template-columns:1fr !important;gap:12px !important}
 [data-r="stage"] [data-r="stagebody"]{padding-left:0 !important}
 [data-r="band"]{padding-top:64px !important;padding-bottom:64px !important}
 [data-r="h1"]{font-size:40px !important}
 [data-r="h2"]{font-size:29px !important}
 [data-r="question"]{font-size:27px !important;padding-left:0 !important;border-left:none !important;padding-top:22px;border-top:2px solid #007D99}
-[data-r="outcome"]{font-size:32px !important}
+[data-r="outcome"]{font-size:38px !important;max-width:none !important}
+[data-r="outcomeimg"] img{aspect-ratio:1/1;height:auto !important;max-width:420px}
 [data-r="hidesm"]{display:none !important}
 }
 @media (max-width:480px){
@@ -35,9 +43,8 @@ section[data-band-tint] a:hover{color:#005366}
 [data-r="h2"]{font-size:26px !important}
 [data-r="strip"]{grid-template-columns:1fr !important}
 [data-r="four"]{grid-template-columns:1fr !important;gap:20px !important}
-[data-r="four"] > div{display:grid;grid-template-columns:1fr;gap:6px}
 [data-r="four"] p{max-width:none !important}
-[data-r="outcome"]{font-size:26px !important}
+[data-r="outcome"]{font-size:28px !important}
 [data-r="question"]{font-size:23px !important}
 }
 </style></helmet>
@@ -57,13 +64,20 @@ section[data-band-tint] a:hover{color:#005366}
 
 <section data-screen-label="Hero" data-r="band" id="top" style="padding:112px 0 96px">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
+<div data-r="hero" style="display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center">
+<div>
 <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:30px">SaMD · Medtech · Diagnostics · Digital therapeutics · AI-enabled clinical products</div>
 <h1 data-r="h1" style="font-family:Lora,serif;font-weight:400;font-size:60px;line-height:1.06;letter-spacing:-.02em;margin:0 0 40px;max-width:20ch;text-wrap:balance">Your product works. <em style="font-style:italic;color:#007D99">That does not make it commercially ready.</em></h1>
-<p style="font-size:21px;font-weight:300;line-height:1.6;margin:0 0 20px;max-width:54ch;text-wrap:pretty">SaMD and regulated digital health companies can secure authorization, complete pilots, and sign customers without reaching repeatable, profitable use.</p>
-<p style="font-size:21px;font-weight:300;line-height:1.6;margin:0 0 44px;max-width:54ch;text-wrap:pretty">Vahana Labs helps leadership teams identify the decisions blocking commercialization and sequence them before they become expensive commitments. US market entry is one use case.</p>
+<p style="font-size:21px;font-weight:300;line-height:1.6;margin:0 0 44px;max-width:54ch;text-wrap:pretty">Regulated health companies secure authorization, complete pilots, and sign customers without reaching repeatable, profitable use. Vahana Labs finds the decisions blocking commercialization and sequences them before they become expensive commitments.</p>
 <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:32px">
 <a href="https://cal.com/arvita-tripati/advisory-discovery" style="font-family:Lora,serif;font-size:23px;font-weight:500">Pressure-test your commercialization plan →</a>
 <a href="#pace" style="font-size:16px;font-weight:400">Explore the commercialization model</a>
+</div>
+</div>
+<figure data-r="heroimg" style="margin:0">
+<img src="medtech-hero-1400.jpg" alt="Two clinicians reviewing a treatment planning console in a radiation oncology suite" width="1400" height="1120" loading="eager" decoding="async" style="display:block;width:100%;height:560px;object-fit:cover;object-position:center;border-radius:6px;box-shadow:0 1px 3px rgba(0,50,61,.10)">
+<figcaption style="margin-top:12px;font-size:14px;font-weight:300;line-height:1.5;color:#47727B;max-width:34ch">Routine use is the bar. Authorization, pilots, and go-live are not.</figcaption>
+</figure>
 </div>
 </div></section>
 
@@ -77,108 +91,70 @@ section[data-band-tint] a:hover{color:#005366}
 </div>
 </div></section>
 
-<section data-screen-label="Sequence" data-r="band" style="padding:96px 0">
-<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
-<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:42px;line-height:1.12;letter-spacing:-.02em;margin:0 0 44px;max-width:22ch;text-wrap:balance">Most commercialization problems are <em style="font-style:italic;color:#007D99">sequence problems</em></h2>
-<div data-r="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start">
-<div>
-<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 22px;max-width:54ch;text-wrap:pretty">Regulatory strategy shapes the claims the company can make. Claims determine the evidence required. Evidence influences who will buy. The buyer determines payment, workflow, implementation, and contracting.</p>
-<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 22px;max-width:54ch;text-wrap:pretty">When these decisions are managed separately, the company accumulates approvals, pilots, integrations, and conversations without building commercial momentum.</p>
-<div style="margin-top:34px;padding-top:26px;border-top:1px solid #CAE1E5">
-<p style="font-family:Lora,serif;font-size:24px;font-weight:400;line-height:1.4;margin:0 0 10px;max-width:34ch;color:#47727B">The company keeps moving forward.</p>
-<p style="font-family:Lora,serif;font-size:24px;font-weight:400;line-height:1.4;margin:0;max-width:38ch;color:#007D99">But each new indication, buyer, or market still feels like starting over.</p>
-</div>
-</div>
-<div style="display:grid;gap:0;padding-top:6px">
-<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:16px">The chain, in the order it actually runs</div>
-<div style="font-size:16px;font-weight:300;line-height:1.5;padding:11px 0;border-top:1px solid #CAE1E5">Regulatory strategy <span style="color:#47727B">sets</span> the claims</div>
-<div style="font-size:16px;font-weight:300;line-height:1.5;padding:11px 0;border-top:1px solid #CAE1E5">Claims <span style="color:#47727B">set</span> the evidence</div>
-<div style="font-size:16px;font-weight:300;line-height:1.5;padding:11px 0;border-top:1px solid #CAE1E5">Evidence <span style="color:#47727B">sets</span> the buyer</div>
-<div style="font-size:16px;font-weight:300;line-height:1.5;padding:11px 0;border-top:1px solid #CAE1E5">The buyer <span style="color:#47727B">sets</span> payment and workflow</div>
-<div style="font-size:16px;font-weight:300;line-height:1.5;padding:11px 0;border-top:1px solid #CAE1E5;border-bottom:1px solid #CAE1E5">Workflow <span style="color:#47727B">sets</span> implementation and contracting</div>
-</div>
-</div>
-<div style="margin-top:72px;display:flex;justify-content:flex-end">
-<p data-r="question" style="font-family:Lora,serif;font-weight:400;font-size:34px;line-height:1.28;letter-spacing:-.02em;margin:0;max-width:26ch;padding-left:36px;border-left:2px solid #007D99;text-wrap:pretty">Where should the next indication, buyer, market, or deployment be faster and less expensive than the last — <em style="font-style:italic;color:#007D99;white-space:nowrap">and why isn’t it?</em></p>
-</div>
-</div></section>
-
 <section data-band-tint="pale" data-screen-label="PACE" data-r="band" id="pace" style="background:#EBF5F7;padding:96px 0">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
-<div data-r="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:baseline;margin-bottom:64px">
-<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:42px;line-height:1.12;letter-spacing:-.02em;margin:0;max-width:20ch;text-wrap:balance">Move through commercialization with PACE</h2>
-<p style="font-size:18px;font-weight:300;line-height:1.65;margin:0;max-width:44ch;text-wrap:pretty">Commercialization is not a linear funnel. <em style="font-style:italic">It is a connected operating system.</em></p>
+<div data-r="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:baseline;margin-bottom:40px">
+<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:42px;line-height:1.12;letter-spacing:-.02em;margin:0;max-width:20ch;text-wrap:balance">Most commercialization problems are <em style="font-style:italic;color:#007D99">sequence problems</em></h2>
+<p style="font-size:18px;font-weight:300;line-height:1.65;margin:0;max-width:44ch;text-wrap:pretty">Managed separately, these decisions produce approvals, pilots, and integrations without commercial momentum. <em style="font-style:italic">PACE is the order they actually run in.</em></p>
 </div>
 
-<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:34px 0;border-top:1px solid #9AC6D0;align-items:start">
-<div><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99;margin-bottom:14px">P</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:14ch">Pick the market</h3></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:14px">The chain</div>
+<div data-r="chain" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-bottom:56px;border-top:1px solid #9AC6D0">
+<div style="padding:14px 20px 14px 0;font-size:16px;font-weight:300;line-height:1.4">Regulatory strategy <span style="color:#47727B">sets</span> claims</div>
+<div style="padding:14px 20px;font-size:16px;font-weight:300;line-height:1.4;border-left:1px solid #9AC6D0">Claims <span style="color:#47727B">set</span> evidence</div>
+<div style="padding:14px 20px;font-size:16px;font-weight:300;line-height:1.4;border-left:1px solid #9AC6D0">Evidence <span style="color:#47727B">sets</span> the buyer</div>
+<div style="padding:14px 20px;font-size:16px;font-weight:300;line-height:1.4;border-left:1px solid #9AC6D0">The buyer <span style="color:#47727B">sets</span> payment and workflow</div>
+<div style="padding:14px 0 14px 20px;font-size:16px;font-weight:300;line-height:1.4;border-left:1px solid #9AC6D0">Workflow <span style="color:#47727B">sets</span> implementation and contracting</div>
+</div>
+
+<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:30px 0;border-top:1px solid #9AC6D0;align-items:baseline">
+<div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99">P</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:12ch">Pick the market</h3></div>
 <div data-r="stagebody" style="padding-left:8px;max-width:640px">
-<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Choose the indication, buyer, use case, channel, and payment model that can support a viable business.</p>
-<p style="font-size:17px;font-weight:300;line-height:1.6;margin:0 0 18px;color:#47727B;text-wrap:pretty">A large market is not necessarily an enterable market. The opportunity has to align with buyer urgency, evidence burden, regulatory constraints, workflow readiness, implementation capacity, and economic value.</p>
+<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Choose the indication, buyer, use case, channel, and payment model that can support a viable business. A large market is not necessarily an enterable one.</p>
 <div style="font-size:15px;font-weight:300;line-height:1.5;color:#47727B;padding-top:12px;border-top:1px solid #CAE1E5"><span style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:#00647A">Determines</span> &nbsp;what has to be built and proven</div>
 </div>
 </div>
 
-<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:34px 0;border-top:1px solid #9AC6D0;align-items:start">
-<div><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99;margin-bottom:14px">A</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:14ch">Align what must be true</h3></div>
+<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:30px 0;border-top:1px solid #9AC6D0;align-items:baseline">
+<div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99">A</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:12ch">Align what must be true</h3></div>
 <div data-r="stagebody" style="padding-left:8px;max-width:640px">
-<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Connect regulatory strategy, claims, evidence, reimbursement, buyer requirements, economics, and contractual obligations.</p>
-<p style="font-size:17px;font-weight:300;line-height:1.6;margin:0 0 18px;color:#47727B;text-wrap:pretty">A product can be clinically valuable and authorized without being buyable. Evidence may satisfy the regulator but not the buyer. A reimbursement pathway may exist without a viable business model. Sales promises may exceed implementation capacity.</p>
+<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Connect regulatory strategy, claims, evidence, reimbursement, economics, and contractual obligations. A product can be clinically valuable and authorized without being buyable.</p>
 <div style="font-size:15px;font-weight:300;line-height:1.5;color:#47727B;padding-top:12px;border-top:1px solid #CAE1E5"><span style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:#00647A">Determines</span> &nbsp;whether interest can become an enterprise commitment</div>
 </div>
 </div>
 
-<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:34px 0;border-top:1px solid #9AC6D0;align-items:start">
-<div><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99;margin-bottom:14px">C</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:14ch">Convert interest into routine use</h3></div>
+<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:30px 0;border-top:1px solid #9AC6D0;align-items:baseline">
+<div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99">C</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:12ch">Convert interest into routine use</h3></div>
 <div data-r="stagebody" style="padding-left:8px;max-width:640px">
-<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Design pilots, procurement, workflow integration, implementation, and adoption around the decision that has to follow.</p>
-<p style="font-size:17px;font-weight:300;line-height:1.6;margin:0 0 18px;color:#47727B;text-wrap:pretty">Many companies can secure champions and pilots. Far fewer can convert those pilots into contracts, and those contracts into sustained use.</p>
+<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Design pilots, procurement, workflow integration, and adoption around the decision that has to follow. Many companies can secure pilots. Far fewer convert them into sustained use.</p>
 <div style="font-size:15px;font-weight:300;line-height:1.5;color:#47727B;padding-top:12px;border-top:1px solid #CAE1E5"><span style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:#00647A">Determines</span> &nbsp;whether the product produces real-world value</div>
 </div>
 </div>
 
-<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:34px 0;border-top:1px solid #9AC6D0;border-bottom:1px solid #9AC6D0;align-items:start">
-<div><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99;margin-bottom:14px">E</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:14ch">Extend the advantage</h3></div>
+<div data-r="stage" style="display:grid;grid-template-columns:220px 1fr;gap:48px;padding:30px 0;border-top:1px solid #9AC6D0;border-bottom:1px solid #9AC6D0;align-items:baseline">
+<div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:Lora,serif;font-size:44px;font-weight:400;line-height:1;color:#007D99">E</div><h3 style="font-family:Lora,serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-.01em;margin:0;max-width:12ch">Extend the advantage</h3></div>
 <div data-r="stagebody" style="padding-left:8px;max-width:640px">
-<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Make each indication, customer, and deployment improve the economics and speed of the next.</p>
-<p style="font-size:17px;font-weight:300;line-height:1.6;margin:0 0 18px;color:#47727B;text-wrap:pretty">Evidence, integrations, buyer materials, contract positions, implementation assets, and postmarket learning should become reusable capabilities. When they do not, complexity grows as quickly as revenue.</p>
+<p style="font-size:19px;font-weight:300;line-height:1.6;margin:0 0 16px;text-wrap:pretty">Evidence, integrations, buyer materials, and contract positions should become reusable capabilities. When they do not, complexity grows as quickly as revenue.</p>
 <div style="font-size:15px;font-weight:300;line-height:1.5;color:#47727B;padding-top:12px;border-top:1px solid #CAE1E5"><span style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:#00647A">Determines</span> &nbsp;whether the next market entry is easier than this one</div>
 </div>
 </div>
 
-<p style="font-size:15px;font-weight:300;line-height:1.6;margin:36px 0 0;color:#47727B;max-width:62ch">PACE is the shorthand. Underneath it, engagements use the SaMD Commercialization Leverage Map to locate the constraint and sequence the work.</p>
-</div></section>
-
-<section data-screen-label="Recognition" data-r="band" style="padding:96px 0">
-<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
-<div data-r="split" style="display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start">
-<div>
-<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch;text-wrap:balance">Where commercialization leverage breaks</h2>
-<p style="font-size:17px;font-weight:300;line-height:1.65;margin:0;color:#47727B;max-width:38ch">If more than two of these are familiar, the constraint is probably not where the organization is looking.</p>
-</div>
-<div>
-<div style="font-size:19px;font-weight:300;line-height:1.5;padding:16px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">The regulatory pathway supports a product that buyers do not value enough.</div>
-<div style="font-size:19px;font-weight:300;line-height:1.5;padding:16px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">The evidence demonstrates performance but does not answer the purchasing question.</div>
-<div style="font-size:19px;font-weight:300;line-height:1.5;padding:16px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">There are users and clinical champions, but no clear economic buyer — and reimbursement strategy is aimed at a code.</div>
-<div style="font-size:19px;font-weight:300;line-height:1.5;padding:16px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">Pilots produce positive results but no defined purchasing decision &mdash; the symptom usually called pilot purgatory.</div>
-<div style="font-size:19px;font-weight:300;line-height:1.5;padding:16px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">Every enterprise customer requires a different integration or promise, and the resulting services consume the margin.</div>
-<div style="font-size:19px;font-weight:300;line-height:1.5;padding:16px 0;border-top:1px solid #CAE1E5;border-bottom:1px solid #CAE1E5;text-wrap:pretty">A new indication repeats work the company believed it had already completed.</div>
-<p style="font-family:Lora,serif;font-size:23px;font-weight:400;line-height:1.4;margin:36px 0 0;max-width:40ch;text-wrap:pretty">These are rarely isolated regulatory, commercial, product, or implementation failures. <em style="font-style:italic;color:#007D99">They occur at the seams between functions.</em></p>
-</div>
+<div style="margin-top:64px;display:flex;justify-content:flex-end">
+<p data-r="question" style="font-family:Lora,serif;font-weight:400;font-size:34px;line-height:1.28;letter-spacing:-.02em;margin:0;max-width:26ch;padding-left:36px;border-left:2px solid #007D99;text-wrap:pretty">Where should the next indication, buyer, market, or deployment be faster and less expensive than the last — <em style="font-style:italic;color:#007D99;white-space:nowrap">and why isn’t it?</em></p>
 </div>
 </div></section>
 
-<section data-band-dark="deep" data-screen-label="Governing outcome" data-r="band" style="background:#00323D;color:#F5FAFB;padding:96px 0">
+<section data-band-dark="deep" data-screen-label="Governing outcome" data-r="band" style="background:#00323D;color:#F5FAFB;padding:96px 0 120px">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
-<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9AC6D0;margin-bottom:28px">The outcome that commercialization should be measured against</div>
-<h2 data-r="outcome" style="color:#F5FAFB;font-family:Lora,serif;font-weight:400;font-size:46px;line-height:1.12;letter-spacing:-.02em;margin:0 0 56px;max-width:20ch;text-wrap:balance">The goal is cleanly paid, routine, <em style="font-style:italic;color:#FFC759"><span style="white-space:nowrap">evidence-supported</span> use</em></h2>
-<div data-r="four" style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-bottom:56px">
-<div style="padding-top:18px;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-size:22px;font-weight:500;line-height:1.2;margin-bottom:12px">Cleanly paid</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#9AC6D0;max-width:26ch">A viable contracting and payment model, not temporary pilot funding or unsustainable services.</p></div>
-<div style="padding-top:18px;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-size:22px;font-weight:500;line-height:1.2;margin-bottom:12px">Routine</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#9AC6D0;max-width:26ch">Embedded in normal clinical or operational workflow, not dependent on exceptional effort or one champion.</p></div>
-<div style="padding-top:18px;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-size:22px;font-weight:500;line-height:1.2;margin-bottom:12px">Evidence-supported</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#9AC6D0;max-width:26ch">Claims appropriate for the product, population, buyer, and use context.</p></div>
-<div style="padding-top:18px;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-size:22px;font-weight:500;line-height:1.2;margin-bottom:12px">Use</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#9AC6D0;max-width:26ch">Actively influencing care or operations, not merely authorized, contracted, integrated, or technically available.</p></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9AC6D0;margin-bottom:40px">The outcome commercialization should be measured against</div>
+<div data-r="split" style="display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;margin-bottom:64px"><p data-r="outcome" style="color:#F5FAFB;font-family:Lora,serif;font-weight:400;font-size:68px;line-height:1.08;letter-spacing:-.025em;margin:0;max-width:15ch;text-wrap:balance">The goal is cleanly paid, routine, <em style="font-style:italic;color:#FFC759"><span style="white-space:nowrap">evidence-supported</span> use</em></p><figure data-r="outcomeimg" style="margin:0"><img src="medtech-routine-use-sq.jpg" alt="A small adhesive monitoring device worn on a person's upper arm" width="1200" height="1200" loading="lazy" decoding="async" style="display:block;width:100%;height:300px;object-fit:cover;border-radius:6px;box-shadow:0 1px 3px rgba(0,50,61,.10);box-shadow:none"></figure></div>
+<div data-r="four" style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-top:24px;border-top:1px solid #47727B">
+<div><div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#FFC759;margin-bottom:10px">Cleanly paid</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#CAE1E5;max-width:26ch">A viable contracting and payment model, not pilot funding.</p></div>
+<div><div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#FFC759;margin-bottom:10px">Routine</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#CAE1E5;max-width:26ch">Embedded in normal workflow, not dependent on one champion.</p></div>
+<div><div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#FFC759;margin-bottom:10px">Evidence-supported</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#CAE1E5;max-width:26ch">Claims appropriate for the product, population, and buyer.</p></div>
+<div><div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#FFC759;margin-bottom:10px">Use</div><p style="font-size:15px;font-weight:300;line-height:1.55;margin:0;color:#CAE1E5;max-width:26ch">Actively influencing care, not merely authorized or available.</p></div>
 </div>
-<div style="padding-top:24px;border-top:1px solid #47727B;display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline">
+<div style="margin-top:44px;padding-top:22px;border-top:1px solid #47727B;display:flex;flex-wrap:wrap;gap:12px 40px;align-items:baseline">
 <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9AC6D0">Milestones often celebrated instead</span>
 <span style="font-size:16px;font-weight:300;color:#CAE1E5">Authorization</span>
 <span style="font-size:16px;font-weight:300;color:#CAE1E5">Pilot completion</span>
@@ -187,21 +163,38 @@ section[data-band-tint] a:hover{color:#005366}
 </div>
 </div></section>
 
-<section data-screen-label="Sale versus scale" data-r="band" style="padding:88px 0">
+<section data-screen-label="Where leverage breaks" data-r="band" style="padding:96px 0">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
-<div data-r="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start;margin-bottom:64px">
+<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 16px;max-width:24ch;text-wrap:balance">Where commercialization leverage breaks</h2>
+<p style="font-size:17px;font-weight:300;line-height:1.65;margin:0 0 48px;color:#47727B;max-width:60ch;text-wrap:pretty">These are rarely isolated regulatory, commercial, or product failures. <em style="font-style:italic;color:#00647A">They occur at the seams between functions.</em></p>
+<div data-r="three" style="display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:56px;align-items:start">
+
 <div>
-<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 22px;max-width:22ch;text-wrap:balance">A product may be sellable <em style="font-style:italic;color:#007D99">without being scalable.</em></h2>
-<p style="font-size:19px;font-weight:300;line-height:1.65;margin:0;max-width:52ch;text-wrap:pretty">A scalable commercial model makes each new customer, implementation, indication, and market less dependent on exceptional effort.</p>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:14px">Symptoms</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">The evidence demonstrates performance but does not answer the purchasing question.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">There are champions but no economic buyer, and reimbursement strategy is aimed at a code.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">Pilots produce positive results but no purchasing decision.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">Every customer requires a different integration, and services consume the margin.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;border-bottom:1px solid #CAE1E5;text-wrap:pretty">A new indication repeats work the company believed it had completed.</div>
 </div>
-<div style="padding-top:6px">
-<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:16px">The economics that decide it</div>
-<div style="display:grid;grid-template-columns:1fr;gap:4px;padding:14px 0;border-top:1px solid #CAE1E5"><div style="font-family:Lora,serif;font-size:20px;font-weight:500;line-height:1.25">Implementation margin</div><p style="font-size:16px;font-weight:300;line-height:1.55;margin:0;color:#47727B;max-width:44ch">Each deployment costs less than the last, and services do not consume the contract.</p></div>
-<div style="display:grid;grid-template-columns:1fr;gap:4px;padding:14px 0;border-top:1px solid #CAE1E5"><div style="font-family:Lora,serif;font-size:20px;font-weight:500;line-height:1.25">Sales-cycle repeatability</div><p style="font-size:16px;font-weight:300;line-height:1.55;margin:0;color:#47727B;max-width:44ch">The same evidence, materials, and contract positions work for the next buyer.</p></div>
-<div style="display:grid;grid-template-columns:1fr;gap:4px;padding:14px 0;border-top:1px solid #CAE1E5"><div style="font-family:Lora,serif;font-size:20px;font-weight:500;line-height:1.25">Services burden</div><p style="font-size:16px;font-weight:300;line-height:1.55;margin:0;color:#47727B;max-width:44ch">Bespoke integrations and promises are the exception, not the price of entry.</p></div>
-<div style="display:grid;grid-template-columns:1fr;gap:4px;padding:14px 0;border-top:1px solid #CAE1E5"><div style="font-family:Lora,serif;font-size:20px;font-weight:500;line-height:1.25">Renewal and expansion</div><p style="font-size:16px;font-weight:300;line-height:1.55;margin:0;color:#47727B;max-width:44ch">Use is routine enough that renewal is a formality and expansion is a smaller decision.</p></div>
-<div style="display:grid;grid-template-columns:1fr;gap:4px;padding:14px 0;border-top:1px solid #CAE1E5"><div style="font-family:Lora,serif;font-size:20px;font-weight:500;line-height:1.25">Referenceability</div><p style="font-size:16px;font-weight:300;line-height:1.55;margin:0;color:#47727B;max-width:44ch">Customers can describe the economic result, not only that the product works.</p></div>
+
+<div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:14px">What scale requires</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty"><span style="font-family:Lora,serif;font-weight:500;font-size:18px">Implementation margin.</span> Each deployment costs less than the last.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty"><span style="font-family:Lora,serif;font-weight:500;font-size:18px">Sales-cycle repeatability.</span> The same evidence and contract positions work for the next buyer.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty"><span style="font-family:Lora,serif;font-weight:500;font-size:18px">Renewal and expansion.</span> Use is routine enough that renewal is a formality.</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;border-bottom:1px solid #CAE1E5;text-wrap:pretty"><span style="font-family:Lora,serif;font-weight:500;font-size:18px">Referenceability.</span> Customers can describe the economic result, not only that the product works.</div>
 </div>
+
+<div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:14px">Best fit</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">A real regulated product, already working</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">Preparing for US entry, a new indication, a new buyer, or production expansion</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;text-wrap:pretty">Decisions that span more than one function</div>
+<div style="font-size:17px;font-weight:300;line-height:1.5;padding:13px 0;border-top:1px solid #CAE1E5;border-bottom:1px solid #CAE1E5;text-wrap:pretty">A need to act within the next 30 to 90 days</div>
+<p style="font-size:15px;font-weight:300;line-height:1.6;margin:20px 0 0;color:#47727B;text-wrap:pretty"><span style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:#47727B">Not</span> regulatory submission writing, lead generation, coding research, or a market landscape with no decision attached.</p>
+</div>
+
 </div>
 </div></section>
 
@@ -211,17 +204,8 @@ section[data-band-tint] a:hover{color:#005366}
 <div>
 <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:22px">The engagement</div>
 <h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:40px;line-height:1.12;letter-spacing:-.02em;margin:0 0 26px;max-width:20ch;text-wrap:balance">Commercialization Leverage Diagnostic</h2>
-<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 20px;text-wrap:pretty">A focused engagement for SaMD, DTx, diagnostic, and AI-enabled clinical companies facing a material commercialization decision in the next 30 to 90 days.</p>
-<p style="font-family:Lora,serif;font-style:italic;font-size:21px;font-weight:400;line-height:1.4;margin:0 0 30px;color:#47727B;max-width:44ch;text-wrap:pretty">What is blocking commercialization, and what must leadership resolve?</p>
-<div style="padding-top:24px;border-top:1px solid #E8D5AC">
-<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:18px">Where momentum is being lost, across PACE</div>
-<div style="display:grid;gap:0">
-<div style="font-size:17px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">Whether the company has picked an enterable market</div>
-<div style="font-size:17px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">Whether the required decisions and evidence are aligned</div>
-<div style="font-size:17px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">Whether interest can convert into durable use</div>
-<div style="font-size:17px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">Whether the company is building assets it can reuse</div>
-</div>
-</div>
+<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 20px;text-wrap:pretty">For SaMD, DTx, diagnostic, and AI-enabled clinical companies facing a material commercialization decision in the next 30 to 90 days.</p>
+<p style="font-family:Lora,serif;font-style:italic;font-size:21px;font-weight:400;line-height:1.4;margin:0;color:#47727B;max-width:44ch;text-wrap:pretty">What is blocking commercialization, and what must leadership resolve?</p>
 </div>
 <div style="padding-top:24px;border-top:1px solid #E8D5AC">
 <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:20px">You leave with</div>
@@ -229,31 +213,24 @@ section[data-band-tint] a:hover{color:#005366}
 <div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC">The primary commercialization constraint</div>
 <div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC">The assumptions most likely to fail</div>
 <div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC">The decisions currently being made in the wrong sequence</div>
-<div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC">The gap between regulatory readiness and buyer readiness</div>
-<div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC">A directional view of whether the current path is viable as framed</div>
-<div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC">The two or three decisions leadership must resolve next</div>
-<div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC;border-bottom:1px solid #E8D5AC">The priority area for deeper planning or intervention</div>
+<div style="font-family:Lora,serif;font-size:21px;font-weight:400;line-height:1.35;padding:14px 0;border-top:1px solid #E8D5AC;border-bottom:1px solid #E8D5AC">The two or three decisions leadership must resolve next</div>
 </div>
 <a href="https://cal.com/arvita-tripati/advisory-discovery" style="display:inline-block;margin-top:30px;font-family:Lora,serif;font-size:21px;font-weight:500">Find the constraint →</a>
 </div>
 </div>
 
-<div style="margin-top:72px;padding-top:32px;border-top:1px solid #E8D5AC">
-<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:14px">If the path is viable</div>
+<div style="margin-top:64px;padding-top:32px;border-top:1px solid #E8D5AC">
 <div data-r="split" style="display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start">
 <div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:14px">If the path is viable</div>
 <h3 style="font-family:Lora,serif;font-weight:500;font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:0 0 14px">Commercialization Sequencing Plan</h3>
-<p style="font-family:Lora,serif;font-style:italic;font-size:20px;font-weight:400;line-height:1.4;margin:0 0 18px;color:#47727B;max-width:42ch;text-wrap:pretty">What should the company do, in what order, with which owners and evidence?</p>
-<p style="font-size:17px;font-weight:300;line-height:1.65;margin:0;max-width:50ch;text-wrap:pretty">The diagnostic identifies the constraint and the decisions. This is where the sequence, the owners, and the evidence get built &mdash; scoped once the priority area is known.</p>
+<p style="font-family:Lora,serif;font-style:italic;font-size:20px;font-weight:400;line-height:1.4;margin:0;color:#47727B;max-width:42ch;text-wrap:pretty">What should the company do, in what order, with which owners and evidence?</p>
 </div>
 <div style="padding-top:6px">
-<div style="display:grid;gap:0">
 <div style="font-size:16px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">The order in which claims, evidence, payment, workflow, and implementation must be resolved</div>
 <div style="font-size:16px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">What must be proven before the next commitment of capital</div>
 <div style="font-size:16px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">Named owners across regulatory, clinical, commercial, and product</div>
-<div style="font-size:16px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC">Implementation and services burden per customer, and how it comes down</div>
 <div style="font-size:16px;font-weight:300;line-height:1.5;padding:12px 0;border-top:1px solid #E8D5AC;border-bottom:1px solid #E8D5AC">The measures that show the model is becoming repeatable</div>
-</div>
 </div>
 </div>
 </div>
@@ -264,8 +241,7 @@ section[data-band-tint] a:hover{color:#005366}
 <div data-r="split" style="display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start">
 <div>
 <h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 28px;max-width:28ch;text-wrap:balance">Built by an operator who has carried regulated products <em style="font-style:italic;color:#007D99">beyond approval</em></h2>
-<p style="font-size:19px;font-weight:300;line-height:1.65;margin:0 0 20px;max-width:54ch;text-wrap:pretty">Arvita Tripati has nearly two decades of experience across SaMD, diagnostics, clinical AI, product, regulatory strategy, privacy, evidence, and enterprise adoption.</p>
-<p style="font-size:19px;font-weight:300;line-height:1.65;margin:0;max-width:54ch;text-wrap:pretty">Her work has included FDA-regulated AI-enabled products, entry into NHS and VA environments, and scaling regulated clinical platforms involving organizations such as Gilead and Moderna.</p>
+<p style="font-size:19px;font-weight:300;line-height:1.65;margin:0;max-width:54ch;text-wrap:pretty">Arvita Tripati has nearly two decades across SaMD, diagnostics, clinical AI, regulatory strategy, privacy, evidence, and enterprise adoption — including FDA-regulated AI-enabled products, entry into NHS and VA environments, and scaling regulated clinical platforms involving organizations such as Gilead and Moderna.</p>
 </div>
 <div style="max-width:34ch;padding-top:24px;border-top:1px solid #9AC6D0">
 <p style="font-family:Lora,serif;font-size:24px;font-weight:400;line-height:1.4;margin:0 0 14px;text-wrap:pretty">The advantage is not another isolated functional opinion.</p>
@@ -275,29 +251,10 @@ section[data-band-tint] a:hover{color:#005366}
 </div>
 </div></section>
 
-<section data-band-tint="pale" data-screen-label="Fit" data-r="band" style="background:#EBF5F7;padding:88px 0">
-<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
-<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 48px;max-width:22ch;text-wrap:balance">This work is designed for a real decision</h2>
-<div data-r="fit" style="display:grid;grid-template-columns:1fr .8fr;gap:64px;align-items:start">
-<div style="display:grid;gap:0">
-<div style="font-size:18px;font-weight:300;line-height:1.5;padding:14px 0;border-top:1px solid #9AC6D0">A real regulated product, already working</div>
-<div style="font-size:18px;font-weight:300;line-height:1.5;padding:14px 0;border-top:1px solid #CAE1E5">Preparing for US entry, a new indication, a new buyer, a pilot, or production expansion</div>
-<div style="font-size:18px;font-weight:300;line-height:1.5;padding:14px 0;border-top:1px solid #CAE1E5">Decisions that span more than one function</div>
-<div style="font-size:18px;font-weight:300;line-height:1.5;padding:14px 0;border-top:1px solid #CAE1E5">A need to act within the next 30 to 90 days</div>
-<div style="font-size:18px;font-weight:300;line-height:1.5;padding:14px 0;border-top:1px solid #CAE1E5;border-bottom:1px solid #CAE1E5">Executive decision support rather than a generic market report</div>
-</div>
-<div style="max-width:42ch;padding-top:20px;border-top:1px solid #9AC6D0">
-<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:16px">What this is not</div>
-<p style="font-size:17px;font-weight:300;line-height:1.65;margin:0;color:#47727B;text-wrap:pretty">Not regulatory submission writing, outsourced lead generation, coding research, or a broad market landscape with no decision attached.</p>
-</div>
-</div>
-</div></section>
-
 <section data-band-tint="cream" data-screen-label="Final CTA" data-r="band" style="background:#FFF1D5;padding:96px 0">
 <div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
 <h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:44px;line-height:1.12;letter-spacing:-.02em;margin:0 0 28px;max-width:16ch;text-wrap:balance">Start with the constraint</h2>
-<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 14px;text-wrap:pretty">You do not need another generic commercialization plan.</p>
-<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 36px;text-wrap:pretty">You need to know what stands between the product and cleanly paid, routine, evidence-supported use.</p>
+<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 36px;max-width:54ch;text-wrap:pretty">You do not need another generic commercialization plan. You need to know what stands between the product and cleanly paid, routine, evidence-supported use.</p>
 <a href="https://cal.com/arvita-tripati/advisory-discovery" style="font-family:Lora,serif;font-size:23px;font-weight:500">Pressure-test your commercialization plan →</a>
 </div></section>
 
