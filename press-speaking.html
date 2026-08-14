@@ -1,489 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Press & Speaking | Vahana Labs</title>
-<meta name="description" content="Selected coverage and invited speaking on AI, trust, and enterprise readiness in regulated markets.">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --ink: #00323d;
-  --ink-light: #47727b;
-  --ink-muted: #5e8a93;
-  --cream: #f0f7f8;
-  --cream-dark: #dceef1;
-  --teal: #007d99;
-  --teal-hover: #009dba;
-  --accent: #ee4266;
-  --gold: #ffc759;
-  --highlight: #fff1d5;
-  --white: #ffffff;
-  --border: rgba(0,50,61,0.12);
-  --border-strong: rgba(0,50,61,0.2);
-  --font-display: 'Lora', Georgia, serif;
-  --font-body: 'Open Sans', 'Segoe UI', sans-serif;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 17px; }
-body {
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--cream);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  padding-top: 56px;
-}
-.container { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
-
-/* NAV */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(240,247,248,0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0.85rem 0;
-}
-.nav .container { display: flex; justify-content: space-between; align-items: center; }
-.nav__links { display: flex; align-items: center; gap: 1.5rem; }
-.nav__link {
-  font-size: 0.9rem; font-weight: 500; color: var(--ink-light);
-  text-decoration: none; transition: color 0.2s;
-}
-.nav__link:hover { color: var(--teal); }
-.nav__link--active { color: var(--teal); font-weight: 600; }
-.nav__brand {
-  font-family: var(--font-display); font-size: 1.2rem; font-weight: 600;
-  color: var(--ink); text-decoration: none;
-}
-.btn {
-  display: inline-block; padding: 0.55rem 1.25rem; background: var(--teal);
-  color: var(--white); text-decoration: none; font-family: var(--font-body);
-  font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: none;
-  cursor: pointer; transition: background 0.2s, transform 0.15s;
-}
-.btn:hover { background: var(--teal-hover); transform: translateY(-1px); }
-
-/* PAGE HEADER */
-.page-header {
-  padding: 4rem 0 3rem;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-}
-.page-header h1 {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.75rem;
-}
-.page-header p {
-  font-size: 1.1rem;
-  color: var(--ink-light);
-  max-width: 640px;
-  line-height: 1.6;
-}
-
-/* SECTION */
-.press-section {
-  padding: 3.5rem 0;
-}
-.press-section + .press-section {
-  border-top: 1px solid var(--border);
-}
-.press-section--alt {
-  background: var(--white);
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 2rem;
-}
-
-/* PRESS CARDS */
-.press-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.press-card {
-  display: block;
-  padding: 1.5rem 1.75rem;
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-.press-section--alt .press-card {
-  background: var(--cream);
-}
-.press-card:hover {
-  border-color: var(--teal);
-  box-shadow: 0 4px 16px rgba(0,125,153,0.08);
-  transform: translateY(-2px);
-}
-.press-card:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-.press-card__outlet {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 0.5rem;
-}
-.press-card__title {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.4rem;
-  line-height: 1.35;
-  transition: color 0.2s;
-}
-.press-card:hover .press-card__title { color: var(--teal); }
-.press-card__desc {
-  display: block;
-  font-size: 0.88rem;
-  color: var(--ink-light);
-  line-height: 1.5;
-}
-
-/* PODCAST CARDS - slightly different treatment */
-.podcast-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.podcast-card {
-  display: block;
-  padding: 1.25rem 1.5rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0;
-  text-decoration: none;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-.podcast-card:hover {
-  border-color: var(--accent);
-  border-left-color: var(--accent);
-  box-shadow: 0 4px 16px rgba(238,66,102,0.08);
-  transform: translateY(-2px);
-}
-.podcast-card:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-.podcast-card__show {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.4rem;
-}
-.podcast-card__title {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1.35;
-  transition: color 0.2s;
-}
-.podcast-card:hover .podcast-card__title { color: var(--accent); }
-
-/* SPEAKING */
-.speaking-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-}
-.speaking-group__title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.35rem;
-}
-.speaking-group__divider {
-  width: 100%;
-  height: 1px;
-  background: var(--border-strong);
-  margin-bottom: 1.25rem;
-}
-.speaking-list {
-  list-style: none;
-}
-.speaking-list li {
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.92rem;
-  color: var(--ink-light);
-  line-height: 1.5;
-}
-.speaking-list li:last-child {
-  border-bottom: none;
-}
-.speaking-list__event {
-  font-weight: 600;
-  color: var(--ink);
-}
-.speaking-list__topic {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  margin-top: 0.15rem;
-}
-.speaking-list__date {
-  color: var(--ink-muted);
-  font-size: 0.85rem;
-}
-
-/* CTA */
-.press-cta {
-  padding: 3.5rem 0;
-  background: var(--ink);
-  text-align: center;
-}
-.press-cta p {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: rgba(240,247,248,0.8);
-  margin-bottom: 1.5rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.btn--accent { background: var(--accent); }
-.btn--accent:hover { background: #f2657f; }
-
-/* FOOTER */
-.footer {
-  padding: 2.5rem 0; text-align: center; font-size: 0.85rem;
-  color: rgba(240,247,248,0.5);
-  border-top: 1px solid rgba(240,247,248,0.08);
-  background: var(--ink);
-}
-.footer__name { font-weight: 600; color: rgba(240,247,248,0.8); margin-bottom: 0.25rem; }
-.footer__email { margin-bottom: 1rem; }
-.footer__email a { color: var(--teal-hover); text-decoration: none; }
-.footer__links { margin-bottom: 1rem; }
-.footer__links a {
-  color: rgba(240,247,248,0.5); text-decoration: none;
-  margin: 0 0.75rem; transition: color 0.2s;
-}
-.footer__links a:hover { color: var(--teal-hover); }
-
-@media (max-width: 900px) {
-  .press-grid { grid-template-columns: 1fr; }
-  .podcast-grid { grid-template-columns: 1fr; }
-  .speaking-grid { grid-template-columns: 1fr; }
-  .page-header h1 { font-size: 2rem; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:wght@300;400;600;700&display=swap"><title>Media | Vahana Labs</title><meta name="description" content="Selected media, interviews and speaking on healthcare technology, AI, commercialization, enterprise adoption, and the decisions that turn technical capability into value."><meta property="og:type" content="website"><meta property="og:url" content="https://vahanalabs.ai/press-speaking.html"><meta property="og:site_name" content="Vahana Labs"><meta property="og:title" content="Media — press, podcasts and speaking"><meta property="og:description" content="Conversations on healthcare technology, AI, commercialization, enterprise adoption, and the decisions that determine whether technical capability becomes real value."><meta property="og:image" content="https://vahanalabs.ai/arvita-hero.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Media | Vahana Labs"><meta name="twitter:description" content="Selected media, interviews and speaking."><link rel="canonical" href="https://vahanalabs.ai/press-speaking.html"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="favicon-192.png"><script async src="https://cdn.podpitch.com/t/94a4a732-3b31-4e4c-ba85-dc5981483d13"></script><style>
+.skip-link{position:absolute;left:-9999px;top:0}
+.skip-link:focus{position:fixed;left:12px;top:12px;z-index:80;background:#FFFFFF;color:#00647A;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none;padding:12px 16px;border:1px solid #9AC6D0;border-radius:4px;outline:3px solid #00323D;outline-offset:3px}
+:focus-visible{outline:3px solid #00323D;outline-offset:3px}
+section[data-band-dark] :focus-visible,footer :focus-visible{outline:3px solid #FFC759;outline-offset:3px}
+[data-menu-btn]{display:none}
+@media (max-width:700px){
+[data-menu-btn]{display:inline-flex !important;align-items:center;margin-left:auto}
+#site-nav{display:none !important;flex-basis:100% !important;flex-direction:column !important;align-items:stretch !important;gap:0 !important;margin-left:0 !important;border-top:1px solid #CAE1E5;padding:4px 0 8px !important}
+header[data-menu-open] #site-nav{display:flex !important}
+#site-nav > a{min-height:44px;display:flex;align-items:center}
+#site-nav > a:last-child{align-self:flex-start;margin-top:6px}
+footer a{display:inline-block;padding:5px 0}
+}
 
-<nav class="nav">
-  <div class="container">
-    <a href="index.html" class="nav__brand">Vahana Labs</a>
-    <div class="nav__links">
-      <a href="us-market-entry-lab.html" class="nav__link">US Market Entry Lab</a>
-      <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn">Book a Call</a>
-    </div>
-  </div>
+body{margin:0;font-family:'Open Sans',sans-serif;color:#00323D;background:#F5FAFB;-webkit-font-smoothing:antialiased}
+a{color:#00647A;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:#005366;text-decoration-thickness:2px}
+section[data-band-tint] a{color:#00647A}
+section[data-band-tint] a:hover{color:#005366}
+section[data-band-dark] a{color:#CAE1E5;text-decoration-color:#9AC6D0}
+section[data-band-dark] a:hover{color:#F5FAFB}
+section[data-band-dark] h1,section[data-band-dark] h2,section[data-band-dark] h3,section[data-band-dark] h4{color:#F5FAFB}
+@media (max-width:1000px){
+[data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+[data-r="split"]{grid-template-columns:1fr !important;gap:26px !important}
+[data-r="press"]{grid-template-columns:1fr !important;gap:0 !important}
+[data-r="pods"]{grid-template-columns:1fr !important;gap:0 !important}
+[data-r="talks"]{grid-template-columns:1fr !important;gap:44px !important}
+[data-r="band"]{padding-top:64px !important;padding-bottom:64px !important}
+[data-r="h1"]{font-size:38px !important}
+[data-r="h2"]{font-size:29px !important}
+}
+@media (max-width:480px){
+[data-r="h1"]{font-size:30px !important}
+[data-r="h2"]{font-size:25px !important}
+}
+</style></helmet>
+<div style="min-height:100vh;background:#F5FAFB;font-family:'Open Sans',sans-serif;color:#00323D">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header data-menu-open="{{ menuOpenAttr }}" style="position:sticky;top:0;z-index:30;background:rgba(245,250,251,.94);border-bottom:1px solid #CAE1E5">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:12px 48px;min-height:76px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 48px">
+<a href="index.html" style="text-decoration:none;color:#00323D;display:flex;flex-direction:column;line-height:1.1"><span style="font-family:Lora,serif;font-weight:500;font-size:21px;letter-spacing:-.01em">Vahana Labs</span><span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-top:2px">Healthcare value creation</span></a>
+<button type="button" data-menu-btn aria-expanded="{{ menuOpenStr }}" aria-controls="site-nav" onClick="{{ toggleMenu }}" style="min-height:44px;padding:10px 14px;background:transparent;border:1px solid #9AC6D0;border-radius:4px;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:600;color:#00647A;cursor:pointer">Menu</button>
+<nav id="site-nav" style="margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 30px">
+<a href="healthtech-companies.html" style="font-size:15px;font-weight:500;text-decoration:none;color:#00323D">For healthtech companies</a>
+<a href="healthcare-operators.html" style="font-size:15px;font-weight:500;text-decoration:none;color:#00323D">For healthcare organizations</a>
+<a href="speaking.html" style="font-size:15px;font-weight:500;text-decoration:none;color:#00323D">Speaking</a>
+<a href="https://operatinginhealthtech.substack.com" style="font-size:15px;font-weight:500;text-decoration:none;color:#00323D">Insights</a>
+<a href="about.html" style="font-size:15px;font-weight:500;text-decoration:none;color:#00323D">About</a>
+<a href="https://cal.com/arvita-tripati/advisory-discovery" style="font-size:15px;font-weight:600;text-decoration:none;color:#007D99;border:1px solid #9AC6D0;border-radius:4px;padding:9px 16px;line-height:1;transition:background 140ms cubic-bezier(.2,.6,.2,1),border-color 140ms cubic-bezier(.2,.6,.2,1)" style-hover="background:#EBF5F7;border-color:#007D99">Discuss a decision</a>
 </nav>
+</div></header>
+<main id="main-content">
 
-<section class="page-header">
-  <div class="container">
-    <h1>Press &amp; Speaking</h1>
-    <p>Selected coverage and invited speaking on AI, trust, and enterprise readiness in regulated markets.</p>
-  </div>
-</section>
+<section data-screen-label="Hero" data-r="band" id="top" style="padding:104px 0 80px">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:30px">Media</div>
+<h1 data-r="h1" style="font-family:Lora,serif;font-weight:400;font-size:56px;line-height:1.07;letter-spacing:-.02em;margin:0 0 30px;max-width:24ch;text-wrap:balance">Selected media, interviews and speaking.</h1>
+<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 36px;max-width:58ch;text-wrap:pretty">Conversations on healthcare technology, AI, commercialization, enterprise adoption, and the decisions that determine whether technical capability becomes real value.</p>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:18px 32px">
+<a href="speaking.html" style="font-size:16px;font-weight:400">Formats, topics and how sessions work</a>
+<a href="mailto:arvita@vahanalabs.ai?subject=Speaking%20or%20media%20inquiry" style="font-size:16px;font-weight:400">arvita@vahanalabs.ai</a>
+</div>
+</div></section>
 
-<!-- FEATURED PRESS -->
-<section class="press-section press-section--alt">
-  <div class="container">
-    <h2 class="section-title">Featured press</h2>
-    <div class="press-grid">
+<section data-band-tint="pale" data-screen-label="Featured press" data-r="band" id="press" style="background:#EBF5F7;padding:88px 0">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
+<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 44px">Featured press</h2>
+<div data-r="press" style="display:grid;grid-template-columns:1fr 1fr;gap:0 64px">
+<div style="padding:24px 0;border-top:1px solid #9AC6D0">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:8px"><a href="https://www.nasdaq.com/articles/women-watch-2024-share-their-strategies-success" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">Nasdaq</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0 0 8px;max-width:44ch;text-wrap:pretty">Women to Watch: Strategies for Success</p>
+<p style="font-size:16px;font-weight:400;line-height:1.55;margin:0;color:#47727B;max-width:46ch;text-wrap:pretty">On leadership in regulated industries and building enterprise trust at scale.</p>
+</div>
+<div style="padding:24px 0;border-top:1px solid #9AC6D0">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:8px"><a href="https://bosstoday.com/what-effective-ceo-leadership-looks-like-in-an-ai-driven-economy/" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">Boss Today</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0 0 8px;max-width:44ch;text-wrap:pretty">What Effective CEO Leadership Looks Like in an AI-Driven Economy</p>
+<p style="font-size:16px;font-weight:400;line-height:1.55;margin:0;color:#47727B;max-width:46ch;text-wrap:pretty">On executive decision-making and governance in AI-first organizations.</p>
+</div>
+<div style="padding:24px 0;border-top:1px solid #9AC6D0">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:8px"><a href="https://medium.com/authority-magazine/arvita-tripati-of-korio-clinical-on-five-things-you-need-to-be-a-highly-effective-leader-during-5be13e9d5c79" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">Authority Magazine</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0 0 8px;max-width:44ch;text-wrap:pretty">Five Things You Need to Be a Highly Effective Leader</p>
+<p style="font-size:16px;font-weight:400;line-height:1.55;margin:0;color:#47727B;max-width:46ch;text-wrap:pretty">On navigating complexity and building high-trust teams in regulated environments.</p>
+</div>
+<div style="padding:24px 0;border-top:1px solid #9AC6D0">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:8px"><a href="https://www.principalpost.com/in-brief/arvita-tripati" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">Principal Post</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0 0 8px;max-width:44ch;text-wrap:pretty">In Brief: Arvita Tripati</p>
+<p style="font-size:16px;font-weight:400;line-height:1.55;margin:0;color:#47727B;max-width:46ch;text-wrap:pretty">A profile on operating in regulated healthcare and building products buyers trust.</p>
+</div>
+</div>
+<div style="margin-top:52px;padding-top:22px;border-top:1px solid #9AC6D0">
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#47727B;margin-bottom:16px">Additional coverage</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px 32px;align-items:baseline">
+<span style="font-size:17px;font-weight:400;line-height:1.5"><a href="https://blog.propllr.com/4-stories-that-sell" target="_blank" rel="noopener" style="font-size:17px;font-weight:400">Propllr Blog</a> &middot; 4 Stories That Sell</span>
+<span style="font-size:17px;font-weight:400;line-height:1.5"><a href="https://web.archive.org/web/20200920142104/https://www.outsourcing-pharma.com/Article/2020/05/06/People-on-the-Move-May-2020?page=8#news" target="_blank" rel="noopener" style="font-size:17px;font-weight:400">Outsourcing-Pharma</a> &middot; People on the Move</span>
+</div>
+</div>
+</div></section>
 
-      <a href="https://www.nasdaq.com/articles/women-watch-2024-share-their-strategies-success" class="press-card" target="_blank" rel="noopener">
-        <span class="press-card__outlet">Nasdaq</span>
-        <span class="press-card__title">Women to Watch: Strategies for Success</span>
-        <span class="press-card__desc">On leadership in regulated industries and building enterprise trust at scale.</span>
-      </a>
+<section data-screen-label="Interviews" data-r="band" id="interviews" style="padding:88px 0">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
+<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 44px">Interviews &amp; podcasts</h2>
+<div data-r="pods" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 64px">
+<div style="padding:24px 0;border-top:2px solid #007D99">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:10px"><a href="https://www.pandium.com/podcast/ai-compliance-and-the-future-of-healthcare-with-arvita-tripati" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">Pandium Podcast</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0;max-width:40ch;text-wrap:pretty">AI, Compliance, and the Future of Healthcare</p>
+</div>
+<div style="padding:24px 0;border-top:2px solid #007D99">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:10px"><a href="https://www.youtube.com/watch?v=uuN738SbEcA" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">NowThis</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0;max-width:40ch;text-wrap:pretty">Helping Create a More Inclusive Workplace</p>
+</div>
+<div style="padding:24px 0;border-top:2px solid #007D99">
+<div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.25;margin-bottom:10px"><a href="https://rss.com/podcasts/medtechtalentlab/241454/" target="_blank" rel="noopener" style="font-family:Lora,serif;font-weight:500;font-size:21px">MedTech Talent Lab Podcast</a></div>
+<p style="font-size:18px;font-weight:400;line-height:1.5;margin:0;max-width:40ch;text-wrap:pretty">On leadership development and talent strategy in regulated medtech.</p>
+</div>
+</div>
+</div></section>
 
-      <a href="https://bosstoday.com/what-effective-ceo-leadership-looks-like-in-an-ai-driven-economy/" class="press-card" target="_blank" rel="noopener">
-        <span class="press-card__outlet">Boss Today</span>
-        <span class="press-card__title">What Effective CEO Leadership Looks Like in an AI-Driven Economy</span>
-        <span class="press-card__desc">On executive decision-making and governance in AI-first organizations.</span>
-      </a>
+<section data-band-dark="deep" data-screen-label="Speaking and panels" data-r="band" id="speaking" style="background:#00323D;color:#F5FAFB;padding:88px 0">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
+<h2 data-r="h2" style="color:#F5FAFB;font-family:Lora,serif;font-weight:400;font-size:38px;line-height:1.12;letter-spacing:-.02em;margin:0 0 14px">Speaking &amp; panels</h2>
+<div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#FFC759;margin-bottom:40px">Recent &amp; selected</div>
+<div data-r="talks" style="display:grid;grid-template-columns:1fr 1fr;gap:0 64px;align-items:start">
+<div>
+<div style="padding:16px 0;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">Trust Debt</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">Sidebar &middot; March 2026</div></div>
+<div style="padding:16px 0;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">The Architecture of Scale: Technical Decisions</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">XmartLabs &middot; March 2026</div></div>
+<div style="padding:16px 0;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">Why Your Deals Stall After the First Yes</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">JPM Week &middot; January 2026</div></div>
+<div style="padding:16px 0;border-top:1px solid #47727B;border-bottom:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">Storytelling that Moves Markets</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">Oasis Collective &middot; March 2026</div></div>
+</div>
+<div>
+<div style="padding:16px 0;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">Getting Raise Ready</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">Stripe &amp; XmartLabs &middot; November 2025</div></div>
+<div style="padding:16px 0;border-top:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">Ship Smart: AI Risks that Kill Deals</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">Well Women &middot; October 2025</div></div>
+<div style="padding:16px 0;border-top:1px solid #47727B;border-bottom:1px solid #47727B"><div style="font-family:Lora,serif;font-weight:500;font-size:21px;line-height:1.3;margin-bottom:5px">Ship Smart: AI Risks that Kill Deals</div><div style="font-size:16px;font-weight:400;color:#CAE1E5">Sidebar &middot; August 2025</div></div>
+</div>
+</div>
+</div></section>
 
-      <a href="https://medium.com/authority-magazine/arvita-tripati-of-korio-clinical-on-five-things-you-need-to-be-a-highly-effective-leader-during-5be13e9d5c79" class="press-card" target="_blank" rel="noopener">
-        <span class="press-card__outlet">Authority Magazine</span>
-        <span class="press-card__title">Five Things You Need to Be a Highly Effective Leader</span>
-        <span class="press-card__desc">On navigating complexity and building high-trust teams in regulated environments.</span>
-      </a>
+<section data-band-tint="cream" data-screen-label="Final CTA" data-r="band" style="background:#FFF1D5;padding:88px 0">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px">
+<h2 data-r="h2" style="font-family:Lora,serif;font-weight:400;font-size:40px;line-height:1.12;letter-spacing:-.02em;margin:0 0 28px;max-width:26ch;text-wrap:balance">Interested in having Arvita speak, join a panel, or contribute to a story?</h2>
+<p style="font-size:20px;font-weight:300;line-height:1.65;margin:0 0 36px;max-width:56ch;text-wrap:pretty">Send the format, audience, timing and topic area. If there is not a fit, I will say so.</p>
+<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:20px 36px">
+<a href="mailto:arvita@vahanalabs.ai?subject=Speaking%20or%20media%20inquiry" style="font-family:Lora,serif;font-size:23px;font-weight:500;color:#007D99">Get in touch →</a>
+<a href="speaking.html" style="font-size:16px;font-weight:400">See formats and topics</a>
+</div>
+</div></section>
 
-      <a href="https://web.archive.org/web/20200920142104/https://www.outsourcing-pharma.com/Article/2020/05/06/People-on-the-Move-May-2020?page=8#news" class="press-card" target="_blank" rel="noopener">
-        <span class="press-card__outlet">Outsourcing-Pharma</span>
-        <span class="press-card__title">People on the Move</span>
-        <span class="press-card__desc">Industry recognition for leadership in clinical and pharmaceutical operations.</span>
-      </a>
+</main>
+<footer style="background:#00323D;color:#F5FAFB;padding:40px 0 26px">
+<div data-r="pad" style="max-width:1200px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px 48px;flex-wrap:wrap">
+<div><span style="font-family:Lora,serif;font-weight:500;font-size:20px">Vahana Labs</span><p style="margin:8px 0 0;font-size:15px;font-weight:400;line-height:1.5;color:#9AC6D0;max-width:40ch">Closing the gap between healthcare technology capability and repeatable value.</p><p style="margin:8px 0 0;font-size:15px;font-weight:400"><a href="mailto:arvita@vahanalabs.ai" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">arvita@vahanalabs.ai</a></p></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><a href="healthtech-companies.html" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">For healthtech companies</a><span style="color:#9AC6D0;font-size:15px;font-weight:400">&middot;</span><a href="healthcare-operators.html" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">For healthcare organizations</a></div>
+<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><a href="speaking.html" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Speaking</a><span style="color:#9AC6D0;font-size:15px;font-weight:400">&middot;</span><a href="press-speaking.html" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Media</a><span style="color:#9AC6D0;font-size:15px;font-weight:400">&middot;</span><a href="about.html" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">About</a></div>
+<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><a href="book.html" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Built to Survive</a><span style="color:#9AC6D0;font-size:15px;font-weight:400">&middot;</span><a href="https://operatinginhealthtech.substack.com" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">Substack</a><span style="color:#9AC6D0;font-size:15px;font-weight:400">&middot;</span><a href="https://www.linkedin.com/in/atripati/" style="font-size:15px;font-weight:400;color:#CAE1E5;text-decoration-color:#9AC6D0">LinkedIn</a></div>
+<span style="font-size:14px;font-weight:400;color:#9AC6D0;margin-top:6px">&copy; 2026 Vahana Labs &middot; Founded by Arvita Tripati</span>
+</div>
+</div></footer>
 
-      <a href="https://blog.propllr.com/4-stories-that-sell" class="press-card" target="_blank" rel="noopener">
-        <span class="press-card__outlet">Propllr Blog</span>
-        <span class="press-card__title">4 Stories That Sell</span>
-        <span class="press-card__desc">On narrative architecture that earns enterprise credibility.</span>
-      </a>
-
-      <a href="https://www.principalpost.com/in-brief/arvita-tripati" class="press-card" target="_blank" rel="noopener">
-        <span class="press-card__outlet">Principal Post</span>
-        <span class="press-card__title">In Brief: Arvita Tripati</span>
-        <span class="press-card__desc">A profile on operating in regulated healthcare and building products buyers trust.</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- INTERVIEWS & PODCASTS -->
-<section class="press-section">
-  <div class="container">
-    <h2 class="section-title">Interviews &amp; podcasts</h2>
-    <div class="podcast-grid">
-
-      <a href="https://www.pandium.com/podcast/ai-compliance-and-the-future-of-healthcare-with-arvita-tripati" class="podcast-card" target="_blank" rel="noopener">
-        <span class="podcast-card__show">Pandium Podcast</span>
-        <span class="podcast-card__title">AI, Compliance, and the Future of Healthcare</span>
-      </a>
-
-      <a href="https://www.youtube.com/watch?v=uuN738SbEcA" class="podcast-card" target="_blank" rel="noopener">
-        <span class="podcast-card__show">NowThis</span>
-        <span class="podcast-card__title">Helping Create a More Inclusive Workplace</span>
-      </a>
-
-      <a href="https://rss.com/podcasts/medtechtalentlab/241454/" class="podcast-card" target="_blank" rel="noopener">
-        <span class="podcast-card__show">MedTech Talent Lab Podcast</span>
-        <span class="podcast-card__title">On leadership development and talent strategy in regulated medtech.</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- SPEAKING & PANELS -->
-<section class="press-section press-section--alt">
-  <div class="container">
-    <h2 class="section-title">Speaking &amp; panels</h2>
-    <div class="speaking-grid">
-
-      <div class="speaking-group">
-        <h3 class="speaking-group__title">Recent &amp; selected</h3>
-        <div class="speaking-group__divider"></div>
-        <ul class="speaking-list">
-          <li>
-            <span class="speaking-list__event">Sidebar</span> <span class="speaking-list__date">&middot; March 2026</span>
-            <span class="speaking-list__topic">Trust Debt</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Oasis Collective</span> <span class="speaking-list__date">&middot; March 2026</span>
-            <span class="speaking-list__topic">Storytelling that Moves Markets</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">XmartLabs</span> <span class="speaking-list__date">&middot; March 2026</span>
-            <span class="speaking-list__topic">The Architecture of Scale: Technical Decisions</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">JPM Week</span> <span class="speaking-list__date">&middot; January 2026</span>
-            <span class="speaking-list__topic">Why Your Deals Stall After the First Yes</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Stripe &amp; XmartLabs</span> <span class="speaking-list__date">&middot; November 2025</span>
-            <span class="speaking-list__topic">Getting Raise Ready</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Well Women</span> <span class="speaking-list__date">&middot; October 2025</span>
-            <span class="speaking-list__topic">Ship Smart: AI Risks that Kill Deals</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Sidebar</span> <span class="speaking-list__date">&middot; August 2025</span>
-            <span class="speaking-list__topic">Ship Smart: AI Risks that Kill Deals</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="speaking-group">
-        <h3 class="speaking-group__title">Selected past engagements</h3>
-        <div class="speaking-group__divider"></div>
-        <ul class="speaking-list">
-          <li>
-            <span class="speaking-list__event">GDPR 45th Legal Confex</span> <span class="speaking-list__date">&middot; October 2019</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Business Ethics, San Francisco State University</span> <span class="speaking-list__date">&middot; April 2017</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Auditing Design Controls, American Society for Quality</span> <span class="speaking-list__date">&middot; September 2014</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Supplier Controls, MD&amp;M East</span> <span class="speaking-list__date">&middot; May 2013</span>
-          </li>
-          <li>
-            <span class="speaking-list__event">Working with Contract Manufacturers</span> <span class="speaking-list__date">&middot; October 2012</span>
-            <span class="speaking-list__topic">Private event</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="press-cta">
-  <div class="container">
-    <p>Interested in having Arvita speak, join a panel, or contribute to a story?</p>
-    <a href="https://cal.com/arvita-tripati/vahana-strategy-call" class="btn btn--accent">Get in Touch</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__name">Arvita Tripati &middot; Vahana Labs</div>
-    <div class="footer__email"><a href="mailto:arvita@vahanalabs.ai">arvita@vahanalabs.ai</a></div>
-    <div class="footer__links">
-      <a href="https://www.linkedin.com/in/atripati/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://operatinginhealthtech.substack.com" target="_blank" rel="noopener">Substack</a>
-      <a href="resources.html">Resources</a>
-      <a href="https://maven.com/arvita-tripati" target="_blank" rel="noopener">Courses</a>
-      <a href="host-the-lab.html">Host Arvita</a>
-      <a href="sponsor-dinners.html">Sponsor a dinner</a>
-      <a href="https://pressuretest.vahanalabs.ai" target="_blank" rel="noopener">Pressure Test</a>
-      <a href="https://vahanalabs.gumroad.com/l/bundle" target="_blank" rel="noopener">Book</a>
-      <a href="press-speaking.html">Press &amp; Speaking</a>
-    </div>
-    <div>&copy; 2026 Vahana Labs</div>
-  </div>
-</footer>
-
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class __MenuBase extends DCLogic {}
+class Component extends __MenuBase {
+  constructor(p){ super(p); this.state = Object.assign({}, this.state, { menuOpen: false }); }
+  componentDidMount(){ if (super.componentDidMount) super.componentDidMount();
+    this._esc = (e) => { if (e.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false }); };
+    document.addEventListener('keydown', this._esc); }
+  componentWillUnmount(){ document.removeEventListener('keydown', this._esc); if (super.componentWillUnmount) super.componentWillUnmount(); }
+  renderVals(){
+    const base = super.renderVals ? super.renderVals() : {};
+    const o = this.state.menuOpen;
+    return Object.assign({}, base, {
+      menuOpenStr: o ? 'true' : 'false',
+      menuOpenAttr: o ? 'open' : undefined,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen }))
+    });
+  }
+}
+</script>
 </body>
 </html>

@@ -6,10 +6,13 @@ Flat folder. Every file sits at the top level — **no subfolders**. Upload all 
 
 | Path | Page |
 |---|---|
-| `index.html` | Healthcare operating leverage (home) |
+| `index.html` | Master home page — technology capability vs. realized value |
+| `healthtech-companies.html` | For healthtech companies (was the home page) |
+| `healthcare-operators.html` | For healthcare organizations & investors |
 | `about.html` | Arvita Tripati — about (redirect target for arvitatripati.com) |
-| `market-entry.html` | Regulated product commercialization / PACE |
+| `market-entry.html` | 301/refresh redirect → `healthtech-companies.html` |
 | `speaking.html` | Speaking |
+| `press-speaking.html` | Media — press, podcasts, speaking history |
 | `book.html` | Built to Survive |
 | `cell-therapy-operating-journey.html` | Cell therapy operating journey |
 | `map-*.html` | Seven specialty operating-leverage one-pagers |
@@ -34,11 +37,11 @@ Canonical URLs are declared per page against the `vahanalabs.ai` paths, so the r
 
 ## Search
 
-`sitemap.xml` lists all thirteen pages; `robots.txt` points to it. The homepage previously indexed under the commercialization headline ("Most healthtech products don't fail…"), so after deploy submit the sitemap in Google Search Console and request reindexing of `/` and `/market-entry.html`.
+`sitemap.xml` lists all fifteen pages; `robots.txt` points to it. The commercialization content that previously sat at `/` now lives at `/healthtech-companies.html`, and `/` carries the new master positioning. After deploy submit the sitemap in Google Search Console and request reindexing of `/`, `/healthtech-companies.html` and `/healthcare-operators.html`. Point a server-side 301 from `/market-entry.html` to `/healthtech-companies.html` if the host allows it; the file itself carries a canonical plus meta refresh as a fallback.
 
 ## Navigation
 
-Header and footer are identical on every page: **For healthcare operators · For healthtech companies · Speaking · About**, plus the booking CTA. `Built to Survive` and the Substack sit in the footer only. The specialty maps are reached from the homepage, not the nav.
+Header and footer are identical on every page: **For healthtech companies · For healthcare organizations · Speaking · Insights · About**, plus the booking CTA. The wordmark links to `index.html`; Insights points at the Substack. `Built to Survive` and the Substack sit in the footer only. The specialty maps are reached from the homepage, not the nav.
 
 ## Before going live
 
